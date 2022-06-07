@@ -38,7 +38,7 @@ export default function AccountMenu() {
                         color: theme => theme.palette.primary.main,
                         backgroundColor: '#fff'
                     }}>
-                        {user.names[0]}
+                        {user.login[0]}
                     </Avatar>
                     <Box sx={{
                         color: theme => theme.palette.text.secondary,
@@ -47,7 +47,7 @@ export default function AccountMenu() {
                         fontSize: '1rem',
                         textTransform: 'capitalize'
                     }}>
-                        {user.names}
+                        {user.login}
                     </Box>
                 </Button>
                 
