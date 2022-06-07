@@ -106,7 +106,7 @@ export default function EnhancedTable({
         page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
     const handleDelete = React.useCallback(async (values) => {
-        const { data } = await axios.delete(`/items/${values.id}`);
+        const { data } = await axios.delete(`/categories/${values.id}`);
 
         if (data) {
             enqueueSnackbar(
@@ -174,9 +174,9 @@ export default function EnhancedTable({
                                         align='right'
                                     >
                                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                                            <LinkIconButton href={`/items/${row.id}/edit`} />
+                                            <LinkIconButton href={`/categories/${row.id}/edit`} />
                                             <DeleteButton
-                                                title={`¿Está seguro que desea eliminar el rubro "${row.name}"?`}
+                                                title={`¿Está seguro que desea eliminar la categoría "${row.name}"?`}
                                                 onClick={() => handleDelete(row)}
                                             />
                                         </Box>

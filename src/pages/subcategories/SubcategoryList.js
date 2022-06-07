@@ -23,7 +23,7 @@ const headCells = [
     }
 ];
 
-const ItemList = () => {
+const SubcategoryList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
@@ -33,7 +33,7 @@ const ItemList = () => {
         error,
         data,
         hasMore
-    } = useFetch('/items', {
+    } = useFetch('/subcategories', {
         perPage: 10,
         page: 1,
         filter: filter
@@ -70,7 +70,7 @@ const ItemList = () => {
                     <ButtonLink
                         color="primary"
                         variant="contained"
-                        to="/items/create"
+                        to="/subcategories/create"
                     />
                 </Box>
             </Box>
@@ -81,4 +81,4 @@ const ItemList = () => {
     )
 }
 
-export default ItemList
+export default SubcategoryList

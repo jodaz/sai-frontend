@@ -1,8 +1,6 @@
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import HomeIcon from '@mui/icons-material/Home';
-import GroupIcon from '@mui/icons-material/Group';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
-import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
+import StyleIcon from '@mui/icons-material/Style';
 
 const routes = [
     {
@@ -11,24 +9,14 @@ const routes = [
         icon: <HomeIcon />
     },
     {
-        name: 'Contribuyentes',
-        route: '/taxpayers',
-        icon: <BusinessCenterIcon />
+        name: 'Categorias',
+        route: '/categories',
+        icon: <LocalOfferIcon />
     },
     {
-        name: 'Cubículos',
-        route: '/cubicles',
-        icon: <AddBusinessIcon />
-    },
-    {
-        name: 'Rubros',
-        route: '/items',
-        icon: <ShoppingBasketIcon />
-    },
-    {
-        name: 'Usuarios',
-        route: '/users',
-        icon: <GroupIcon />
+        name: 'Subcategorías',
+        route: '/subcategories',
+        icon: <StyleIcon />
     },
 ]
 

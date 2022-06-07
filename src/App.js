@@ -8,9 +8,12 @@ import { ConfirmProvider } from 'material-ui-confirm';
 import theme from './theme'
 import Layout from './layout'
 // Pages
-import ItemsList from './pages/items/ItemList'
-import ItemEdit from './pages/items/ItemEdit'
-import ItemCreate from './pages/items/ItemCreate'
+import SubcategoryList from './pages/subcategories/SubcategoryList'
+import SubcategoryEdit from './pages/subcategories/SubcategoryEdit'
+import SubcategoryCreate from './pages/subcategories/SubcategoryCreate'
+import CategorysList from './pages/categories/CategoryList'
+import CategoryEdit from './pages/categories/CategoryEdit'
+import CategoryCreate from './pages/categories/CategoryCreate'
 import Dashboard from './pages/dashboard'
 import Login from './pages/auth/Login'
 import Security from './pages/account/Security';
@@ -33,26 +36,50 @@ function App() {
                                     }
                                 />
                                 <Route
-                                    path="/items"
+                                    path="/categories"
                                     element={
                                         <Layout>
-                                            <ItemsList />
+                                            <CategorysList />
                                         </Layout>
                                     }
                                 />
                                 <Route
-                                    path="/items/:id/edit"
+                                    path="/categories/:id/edit"
                                     element={
                                         <Layout>
-                                            <ItemEdit />
+                                            <CategoryEdit />
                                         </Layout>
                                     }
                                 />
                                 <Route
-                                    path="/items/create"
+                                    path="/categories/create"
                                     element={
                                         <Layout>
-                                            <ItemCreate />
+                                            <CategoryCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/subcategories"
+                                    element={
+                                        <Layout>
+                                            <SubcategoryList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/subcategories/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <SubcategoryEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/subcategories/create"
+                                    element={
+                                        <Layout>
+                                            <SubcategoryCreate />
                                         </Layout>
                                     }
                                 />
