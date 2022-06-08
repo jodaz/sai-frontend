@@ -18,6 +18,16 @@ const routes = [
         route: '/subcategories',
         icon: <StyleIcon />
     },
+    {
+        name: 'Municipios',
+        route: '/municipalities',
+        icon: <LocalOfferIcon />
+    },
+    {
+        name: 'Parroquias',
+        route: '/parishes',
+        icon: <LocalOfferIcon />
+    },
 ]
 
 export default routes;

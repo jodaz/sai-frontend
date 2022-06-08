@@ -14,6 +14,12 @@ import SubcategoryCreate from './pages/subcategories/SubcategoryCreate'
 import CategorysList from './pages/categories/CategoryList'
 import CategoryEdit from './pages/categories/CategoryEdit'
 import CategoryCreate from './pages/categories/CategoryCreate'
+import MunicipalityList from './pages/municipalities/MunicipalityList'
+import MunicipalityEdit from './pages/municipalities/MunicipalityEdit'
+import MunicipalityCreate from './pages/municipalities/MunicipalityCreate'
+import ParishList from './pages/parishes/ParishList'
+import ParishEdit from './pages/parishes/ParishEdit'
+import ParishCreate from './pages/parishes/ParishCreate'
 import Dashboard from './pages/dashboard'
 import Login from './pages/auth/Login'
 import Security from './pages/account/Security';
@@ -80,6 +86,54 @@ function App() {
                                     element={
                                         <Layout>
                                             <SubcategoryCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/municipalities"
+                                    element={
+                                        <Layout>
+                                            <MunicipalityList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/municipalities/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <MunicipalityEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/municipalities/create"
+                                    element={
+                                        <Layout>
+                                            <MunicipalityCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/parishes"
+                                    element={
+                                        <Layout>
+                                            <ParishList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/parishes/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <ParishEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/parishes/create"
+                                    element={
+                                        <Layout>
+                                            <ParishCreate />
                                         </Layout>
                                     }
                                 />
