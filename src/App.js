@@ -11,12 +11,18 @@ import Layout from './layout'
 import SubcategoryList from './pages/subcategories/SubcategoryList'
 import SubcategoryEdit from './pages/subcategories/SubcategoryEdit'
 import SubcategoryCreate from './pages/subcategories/SubcategoryCreate'
+import SectorList from './pages/sectors/SectorList'
+import SectorEdit from './pages/sectors/SectorEdit'
+import SectorCreate from './pages/sectors/SectorCreate'
 import CategorysList from './pages/categories/CategoryList'
 import CategoryEdit from './pages/categories/CategoryEdit'
 import CategoryCreate from './pages/categories/CategoryCreate'
 import MunicipalityList from './pages/municipalities/MunicipalityList'
 import MunicipalityEdit from './pages/municipalities/MunicipalityEdit'
 import MunicipalityCreate from './pages/municipalities/MunicipalityCreate'
+import CommunityList from './pages/communities/CommunityList'
+import CommunityEdit from './pages/communities/CommunityEdit'
+import CommunityCreate from './pages/communities/CommunityCreate'
 import ParishList from './pages/parishes/ParishList'
 import ParishEdit from './pages/parishes/ParishEdit'
 import ParishCreate from './pages/parishes/ParishCreate'
@@ -134,6 +140,54 @@ function App() {
                                     element={
                                         <Layout>
                                             <ParishCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/communities"
+                                    element={
+                                        <Layout>
+                                            <CommunityList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/communities/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <CommunityEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/communities/create"
+                                    element={
+                                        <Layout>
+                                            <CommunityCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/sectors"
+                                    element={
+                                        <Layout>
+                                            <SectorList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/sectors/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <SectorEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/sectors/create"
+                                    element={
+                                        <Layout>
+                                            <SectorCreate />
                                         </Layout>
                                     }
                                 />

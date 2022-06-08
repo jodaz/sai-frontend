@@ -28,6 +28,16 @@ const routes = [
         route: '/parishes',
         icon: <LocalOfferIcon />
     },
+    {
+        name: 'Comunidades',
+        route: '/communities',
+        icon: <LocalOfferIcon />
+    },
+    {
+        name: 'Sectores',
+        route: '/sectors',
+        icon: <LocalOfferIcon />
+    }
 ]
 
 export default routes;
