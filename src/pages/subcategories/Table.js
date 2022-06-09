@@ -151,7 +151,7 @@ export default function EnhancedTable({
                                     key={row.name}
                                     selected={isItemSelected}
                                 >
-                                    <TableCell padding="checkbox">
+                                    <TableCell padding="checkbox" width={'10%'}>
                                         <Checkbox
                                             color="primary"
                                             checked={isItemSelected}
@@ -165,13 +165,23 @@ export default function EnhancedTable({
                                         id={labelId}
                                         scope="row"
                                         padding="none"
-                                        width='100%'
+                                        width={'40%'}
                                     >
                                         {row.name}
                                     </TableCell>
                                     <TableCell
+                                        component="th"
+                                        id={labelId}
+                                        scope="row"
+                                        padding="none"
+                                        width={'40%'}
+                                    >
+                                        {row.category.name}
+                                    </TableCell>
+                                    <TableCell
                                         scope="row"
                                         align='right'
+                                        width={'10%'}
                                     >
                                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                                             <LinkIconButton href={`/subcategories/${row.id}/edit`} />

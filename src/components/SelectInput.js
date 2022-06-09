@@ -14,24 +14,30 @@ const ControllableSelectInput = props => {
         property,
         inputProps
     } = props;
+    const [defaultValue] = React.useState((() => {
+        if (value && options.length) {
+            return options.find(item => item.id == value);
+        } else {
+            return null;
+        }
+    })());
 
     if (!options.length) return null;
 
     return (
         <FormControl className="MuiFormControl-root MuiTextField-root MuiFormControl-marginDense MuiFormControl-fullWidth" style={{ width: '100%' }}>
             <Autocomplete
-                value={value}
                 {...restInputProps}
                 options={options}
-                getOptionLabel={option => option[property]}
+                getOptionLabel={(option) => option[property]}
                 renderInput={(params) => (
                     <TextField
                         {...params}
                         {...inputProps}
                     />
                 )}
+                defaultValue={defaultValue}
                 onChange={(event, option) => (onChange(option.id))}
-                fullWidth
             />
             {meta.error && meta.touched && <FormHelperText error>{meta.error}</FormHelperText>}
         </FormControl>

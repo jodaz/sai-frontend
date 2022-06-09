@@ -6,12 +6,11 @@ import TextInput from '../../components/TextInput'
 import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
-import SelectInput from '../../components/SelectInput'
+import SelectCategoryInput from './SelectCategoryInput'
 
 const ItemCreate = () => {
     const navigate = useNavigate()
     const { enqueueSnackbar } = useSnackbar();
-    const [categories, setCategories] = React.useState([])
 
     const save = React.useCallback(async (values) => {
         try {
@@ -28,16 +27,6 @@ const ItemCreate = () => {
         }
     }, [])
 
-    const fetchCategories = React.useCallback(async () => {
-        const { data } = await axios.get('/categories')
-
-        setCategories(data.data)
-    }, [])
-
-    React.useEffect(() => {
-        fetchCategories()
-    }, [])
-
     return (
         <BaseForm
             save={save}
@@ -52,21 +41,9 @@ const ItemCreate = () => {
                     fullWidth
                 />
             </InputContainer>
-            <InputContainer label='Categoría'>
-                <SelectInput
-                    name='category_id'
-                    placeholder='Categoría'
-                    options={categories}
-                    fullWidth
-                />
-            </InputContainer>
+            <SelectCategoryInput />
         </BaseForm>
     )
-}
-
-ItemCreate.defaultProps = {
-    basePath: 'items',
-    resource: 'items'
 }
 
 export default ItemCreate

@@ -6,13 +6,12 @@ import TextInput from '../../components/TextInput'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
-import SelectInput from '../../components/SelectInput'
+import SelectCategoryInput from './SelectCategoryInput';
 
 const SubcategoryEdit = () => {
     const { id } = useParams();
     const [record, setRecord] = React.useState(null)
     const navigate = useNavigate()
-    const [categories, setCategories] = React.useState([])
     const { enqueueSnackbar } = useSnackbar();
 
     const save = React.useCallback(async (values) => {
@@ -36,15 +35,8 @@ const SubcategoryEdit = () => {
         setRecord(data);
     }, []);
 
-    const fetchCategories = React.useCallback(async () => {
-        const { data } = await axios.get('/categories')
-
-        setCategories(data.data)
-    }, [])
-
     React.useEffect(() => {
         fetchRecord()
-        fetchCategories();
     }, [])
 
     if (!record) return null;
@@ -64,14 +56,7 @@ const SubcategoryEdit = () => {
                     fullWidth
                 />
             </InputContainer>
-            <InputContainer label='Categoría'>
-                <SelectInput
-                    name='category_id'
-                    placeholder='Categoría'
-                    options={categories}
-                    fullWidth
-                />
-            </InputContainer>
+            <SelectCategoryInput sourceValue={record.category_id} />
         </BaseForm>
     )
 }

@@ -16,6 +16,12 @@ const headCells = [
         label: 'Nombre',
     },
     { 
+        id: 'category',
+        numeric: false,
+        disablePadding: true,
+        label: 'Categoría',
+    },
+    { 
         id: 'actions',
         numeric: false,
         disablePadding: true,
