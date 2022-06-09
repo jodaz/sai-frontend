@@ -9,20 +9,31 @@ import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import routes from '../routes'
+import { routes, geographicAreaRoutes, adminRoutes } from '../routes'
 import ListItemLink from '../components/ListItemLink';
 import { useAdmin } from '../context/AdminContext'
 import AccountMenu from './AccountMenu'
 import LogoutButton from '../components/LogoutButton';
+import Submenu from '../components/Submenu';
+import PublicIcon from '@mui/icons-material/Public';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 const drawerWidth = 240;
 
-function ResponsiveDrawer(props) {
+function ResponsiveDrawer() {
+    const [state, setState] = React.useState({
+        geographicArea: false,
+        administrative: false
+    });
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { state } = useAdmin()
+    const { state: AdminState } = useAdmin()
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
+    };
+
+    const handleToggle = menu => {
+        setState(state => ({ ...state, [menu]: !state[menu] }));
     };
 
     const drawer = (
@@ -38,6 +49,38 @@ function ResponsiveDrawer(props) {
                         key={index}
                     />
                 ))}
+                <Submenu
+                    handleToggle={() => handleToggle('geographicArea')}
+                    isOpen={state.geographicArea}
+                    sidebarIsOpen={true}
+                    name='Áreas'
+                    icon={<PublicIcon />}
+                >
+                    {geographicAreaRoutes.map((route, index) => (
+                        <ListItemLink
+                            primary={route.name}
+                            to={route.route}
+                            icon={route.icon}
+                            key={index}
+                        />
+                    ))}
+                </Submenu>
+                <Submenu
+                    handleToggle={() => handleToggle('administrative')}
+                    isOpen={state.administrative}
+                    sidebarIsOpen={true}
+                    name='Administración'
+                    icon={<AssignmentIndIcon />}
+                >
+                    {adminRoutes.map((route, index) => (
+                        <ListItemLink
+                            primary={route.name}
+                            to={route.route}
+                            icon={route.icon}
+                            key={index}
+                        />
+                    ))}
+                </Submenu>
                 <LogoutButton />
             </List>
             <Divider />
@@ -65,7 +108,7 @@ function ResponsiveDrawer(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        {state.title}
+                        {AdminState.title}
                     </Typography>
                     <Box flex='1' justifyContent='flex-end' display='flex'>
                         <AccountMenu />
