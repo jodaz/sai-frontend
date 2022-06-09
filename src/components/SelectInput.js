@@ -8,25 +8,32 @@ import { Field } from 'react-final-form'
 const ControllableSelectInput = props => {
     const {
         meta: { touched, error, submitError, initial } = { touched, initial, error, submitError },
-        input: { onChange, value, ...restInputProps },
+        input: { onChange, value, multiple, ...restInputProps },
         meta,
         options,
         property,
         inputProps
     } = props;
     const [defaultValue] = React.useState((() => {
-        if (value && options.length) {
+        if (multiple && value.length && options.length) {
+            return options.filter(item => value.includes(item)).filter((item, index, self) => self.indexOf(item) === index);
+        } else if (!multiple && value && options.length) {
             return options.find(item => item.id == value);
         } else {
-            return null;
+            return multiple ? [] : null;
         }
     })());
+
+    const handleChange = (event, option) => (onChange(option.id))
+
+    const handleMultipleChange = (event, option) => (onChange(option.map(items => items.id)))
 
     if (!options.length) return null;
 
     return (
         <FormControl className="MuiFormControl-root MuiTextField-root MuiFormControl-marginDense MuiFormControl-fullWidth" style={{ width: '100%' }}>
             <Autocomplete
+                multiple={multiple}
                 {...restInputProps}
                 options={options}
                 getOptionLabel={(option) => option[property]}
@@ -37,7 +44,7 @@ const ControllableSelectInput = props => {
                     />
                 )}
                 defaultValue={defaultValue}
-                onChange={(event, option) => (onChange(option.id))}
+                onChange={multiple ? handleMultipleChange : handleChange}
             />
             {meta.error && meta.touched && <FormHelperText error>{meta.error}</FormHelperText>}
         </FormControl>

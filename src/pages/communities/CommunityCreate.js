@@ -3,30 +3,10 @@ import { validateItem } from './communityValidations';
 import BaseForm from '../../components/BaseForm'
 import InputContainer from '../../components/InputContainer'
 import TextInput from '../../components/TextInput'
-import SelectInput from '../../components/SelectInput'
 import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
-import useFetch from '../../hooks/useFetch';
-
-const SelectParishesInput = () => {
-    const { 
-        data, total
-    } = useFetch('/parishes')
-
-    if (!total) return null;
-
-    return (
-        <InputContainer label='Parroquia (s)'>
-            <SelectInput
-                name="parishes"
-                placeholder="Nombre"
-                fullWidth
-                options={data}
-            />
-        </InputContainer>
-    )
-}
+import SelectParishesInput from './SelectParishesInput';
 
 const CommunityCreate = () => {
     const navigate = useNavigate()

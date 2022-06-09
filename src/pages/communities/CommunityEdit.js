@@ -6,6 +6,7 @@ import TextInput from '../../components/TextInput'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
+import SelectParishesInput from './SelectParishesInput'
 
 const CommunityEdit = () => {
     const { id } = useParams();
@@ -58,6 +59,7 @@ const CommunityEdit = () => {
                     fullWidth
                 />
             </InputContainer>
+            <SelectParishesInput />
         </BaseForm>
     )
 }
