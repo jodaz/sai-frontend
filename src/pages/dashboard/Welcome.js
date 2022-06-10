@@ -1,17 +1,29 @@
 import Box from '@mui/material/Box'
+import dtiLogo from '../../images/DTI2.png'
+import mayorLogo from '../../images/mayorLogo.png'
 
 const Welcome = () => {
     return (
         <Box sx={{
             fontSize: '2rem',
             display: 'flex',
-            backgroundColor: theme => theme.palette.primary.main,
+            backgroundColor: theme => theme.palette.secondary.main,
             width: '100%',
-            color: theme => theme.palette.secondary.main, 
-            padding: '1rem'
+            padding: '2rem 1rem',
+            flexDirection: 'column'
         }}>
-            <Box>
+            <Box width='100%'>
                 ¡Bienvenido al Sistema de Atención Integral!
+            </Box>
+            <Box sx={{
+                paddingTop: '2rem',
+                width: '40%',
+                display: 'flex',
+                justifyContent: 'space-between',
+                flexDirection: 'row'
+            }}>
+                <img height='50rem' src={dtiLogo} />
+                <img height='75rem' src={mayorLogo} />
             </Box>
         </Box>
     )
