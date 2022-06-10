@@ -3,7 +3,7 @@ import { validateItem } from './sectorValidations';
 import BaseForm from '../../components/BaseForm'
 import InputContainer from '../../components/InputContainer'
 import TextInput from '../../components/TextInput'
-import SelectInput from '../../components/SelectInput'
+import SelectCommunityInput from './SelectCommunityInput';
 import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
@@ -11,7 +11,6 @@ import { useSnackbar } from 'notistack';
 const SectorCreate = () => {
     const navigate = useNavigate()
     const { enqueueSnackbar } = useSnackbar();
-    const [communities, setCommunities] = React.useState([])
 
     const save = React.useCallback(async (values) => {
         try {
@@ -31,16 +30,6 @@ const SectorCreate = () => {
         }
     }, [])
 
-    const fetchCommunities = React.useCallback(async () => {
-        const { data } = await axios.get('/communities')
-
-        setCommunities(data.data)
-    }, [])
-
-    React.useEffect(() => {
-        fetchCommunities();
-    }, []);
-
     return (
         <BaseForm
             save={save}
@@ -55,14 +44,7 @@ const SectorCreate = () => {
                     fullWidth
                 />
             </InputContainer>
-            <InputContainer label='Communidad'>
-                <SelectInput
-                    name='community_id'
-                    placeholder='Communidad'
-                    options={communities}
-                    fullWidth
-                />
-            </InputContainer>
+            <SelectCommunityInput />
         </BaseForm>
     )
 }

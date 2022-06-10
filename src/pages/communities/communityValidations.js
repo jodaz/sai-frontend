@@ -4,6 +4,9 @@ export const validateItem = (values) => {
     if (!values.name) {
         errors.name = "Ingrese un nombre para el rubro.";
     }
+    if (!values.parishes) {
+        errors.parishes = "Seleccione una o más parroquias.";
+    }
 
     return errors;
 };

@@ -5,6 +5,7 @@ import InputContainer from '../../components/InputContainer'
 import TextInput from '../../components/TextInput'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
+import SelectCommunityInput from './SelectCommunityInput';
 import { useSnackbar } from 'notistack';
 
 const SectorEdit = () => {
@@ -58,6 +59,7 @@ const SectorEdit = () => {
                     fullWidth
                 />
             </InputContainer>
+            <SelectCommunityInput />
         </BaseForm>
     )
 }

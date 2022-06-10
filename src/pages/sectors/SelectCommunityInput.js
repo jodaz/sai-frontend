@@ -3,18 +3,17 @@ import InputContainer from '../../components/InputContainer'
 import SelectInput from '../../components/SelectInput'
 import useFetch from '../../hooks/useFetch';
 
-const SelectSectorsInput = () => {
+const SelectCommunityInput = () => {
     const { 
         data, total
-    } = useFetch('/sectors')
+    } = useFetch('/communities')
 
     if (!total) return null;
 
     return (
-        <InputContainer label='Sector (es)'>
+        <InputContainer label='Comunidad'>
             <SelectInput
-                multiple
-                name="sectors"
+                name="community_id"
                 placeholder="Nombre"
                 fullWidth
                 options={data}
@@ -23,4 +22,4 @@ const SelectSectorsInput = () => {
     )
 }
 
-export default SelectSectorsInput
+export default SelectCommunityInput
