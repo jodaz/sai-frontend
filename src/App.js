@@ -26,6 +26,9 @@ import CommunityCreate from './pages/communities/CommunityCreate'
 import ParishList from './pages/parishes/ParishList'
 import ParishEdit from './pages/parishes/ParishEdit'
 import ParishCreate from './pages/parishes/ParishCreate'
+import StreetList from './pages/streets/StreetList'
+import StreetEdit from './pages/streets/StreetEdit'
+import StreetCreate from './pages/streets/StreetCreate'
 import Dashboard from './pages/dashboard'
 import Login from './pages/auth/Login'
 import Security from './pages/account/Security';
@@ -164,6 +167,30 @@ function App() {
                                     element={
                                         <Layout>
                                             <CommunityCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/streets"
+                                    element={
+                                        <Layout>
+                                            <StreetList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/streets/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <StreetEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/streets/create"
+                                    element={
+                                        <Layout>
+                                            <StreetCreate />
                                         </Layout>
                                     }
                                 />
