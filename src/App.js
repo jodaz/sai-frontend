@@ -23,6 +23,9 @@ import MunicipalityCreate from './pages/municipalities/MunicipalityCreate'
 import CommunityList from './pages/communities/CommunityList'
 import CommunityEdit from './pages/communities/CommunityEdit'
 import CommunityCreate from './pages/communities/CommunityCreate'
+import PeopleList from './pages/people/PeopleList'
+import PeopleEdit from './pages/people/PeopleEdit'
+import PeopleCreate from './pages/people/PeopleCreate'
 import ParishList from './pages/parishes/ParishList'
 import ParishEdit from './pages/parishes/ParishEdit'
 import ParishCreate from './pages/parishes/ParishCreate'
@@ -167,6 +170,30 @@ function App() {
                                     element={
                                         <Layout>
                                             <CommunityCreate />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/people"
+                                    element={
+                                        <Layout>
+                                            <PeopleList />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/people/:id/edit"
+                                    element={
+                                        <Layout>
+                                            <PeopleEdit />
+                                        </Layout>
+                                    }
+                                />
+                                <Route
+                                    path="/people/create"
+                                    element={
+                                        <Layout>
+                                            <PeopleCreate />
                                         </Layout>
                                     }
                                 />
