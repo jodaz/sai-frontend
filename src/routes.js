@@ -43,11 +43,11 @@ export const routes = [
 ]
 
 export const geographicAreaRoutes = [
-    {
-        name: 'Municipios',
-        route: '/municipalities',
-        icon: <AdminIcon />
-    },
+    // {
+    //     name: 'Municipios',
+    //     route: '/municipalities',
+    //     icon: <AdminIcon />
+    // },
     {
         name: 'Parroquias',
         route: '/parishes',
