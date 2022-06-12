@@ -12,11 +12,12 @@ const ControllableSelectInput = props => {
         meta,
         options,
         property,
-        inputProps
+        inputProps,
+        ...rest
     } = props;
     const [defaultValue] = React.useState((() => {
         if (multiple && value.length && options.length) {
-            return options.filter(item => value.includes(item)).filter((item, index, self) => self.indexOf(item) === index);
+            return value.filter(item => options.indexOf(item))
         } else if (!multiple && value && options.length) {
             return options.find(item => item.id == value);
         } else {
@@ -36,30 +37,33 @@ const ControllableSelectInput = props => {
                 multiple={multiple}
                 {...restInputProps}
                 options={options}
-                getOptionLabel={(option) => option[property]}
-                renderInput={(params) => (
+                getOptionLabel={option => option[property]}
+                renderInput={params => (
                     <TextField
                         {...params}
-                        {...inputProps}
+                        InputProps={{ ...params.InputProps, ...inputProps }}
                     />
                 )}
                 defaultValue={defaultValue}
                 onChange={multiple ? handleMultipleChange : handleChange}
+                {...rest}
             />
             {meta.error && meta.touched && <FormHelperText error>{meta.error}</FormHelperText>}
         </FormControl>
     );
 }
 
-const Select = props => (
-    <Field
-        component={ControllableSelectInput}
-        {...props}
-    />
+const SelectInput = props => (
+    <Field {...props}>
+        {props => (
+            <ControllableSelectInput {...props} />
+        )}
+    </Field>
 );
 
 ControllableSelectInput.defaultProps = {
-    property: 'name'
+    property: 'name',
+    options: []
 }
 
-export default Select;
+export default SelectInput;
