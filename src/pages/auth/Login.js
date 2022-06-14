@@ -11,6 +11,7 @@ import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useAuth, loginUser } from '../../context/AuthContext'
 import Logo from './logo.png'
+import fondo from './fondo.jpg'
 
 const validate = (values) => {
     const errors = {};
@@ -55,7 +56,9 @@ const Login = () => {
             alignItems: 'center',
             justifyContent: 'center',
             width: '100%',
-            height: '100%'
+            height: '100%',
+            background: `url(${fondo}) no-repeat center center fixed`,
+            backgroundSize: 'cover'
         }}>
             <Box
                 component='div'
