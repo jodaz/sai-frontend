@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Form } from 'react-final-form';
-import Card from '@mui/material/Card'
 import Box from '@mui/material/Box'
-import CardActions from '@mui/material/CardActions'
 import Button from '@mui/material/Button'
 import TextInput from '../../components/TextInput'
 import PasswordInput from '../../components/PasswordInput'
@@ -10,8 +8,8 @@ import InputContainer from '../../components/InputContainer'
 import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useAuth, loginUser } from '../../context/AuthContext'
-import Logo from './logo.png'
-import fondo from './fondo.jpg'
+import Logo from '../../images/logo.png'
+import fondo from '../../images/fondo.jpg'
 
 const validate = (values) => {
     const errors = {};
