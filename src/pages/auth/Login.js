@@ -36,7 +36,9 @@ const Login = () => {
                 await axios.get('/csrf-cookie');
                 loginUser(dispatch, data)
 
-                await navigate('/');
+                await navigate('/', { replace: true, state: {
+                    prevLogin: true
+                }});
             }).catch(err => {
                 if (err.response.status == 500) {
                     navigate('/error', { replace: true });

@@ -17,6 +17,7 @@ import LogoutButton from '../components/LogoutButton';
 import Submenu from '../components/Submenu';
 import PublicIcon from '@mui/icons-material/Public';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import GoBackButton from './GoBackButton'
 
 const drawerWidth = 240;
 
@@ -107,6 +108,7 @@ function ResponsiveDrawer() {
                     >
                         <MenuIcon />
                     </IconButton>
+                    <GoBackButton />
                     <Typography variant="h6" noWrap component="div">
                         {AdminState.title}
                     </Typography>
