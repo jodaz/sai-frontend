@@ -9,6 +9,9 @@ import { useSnackbar } from 'notistack';
 import SelectParishInput from './SelectParishInput';
 import SelectCommunityInput from './SelectCommunityInput';
 import { phoneFormat, identityCardFormat } from '../../formatters'
+import SelectSectorInput from './SelectSectorInput';
+import SelectStreetInput from './SelectStreetInput';
+import Box from '@mui/material/Box'
 
 const PeopleCreate = () => {
     const navigate = useNavigate()
@@ -39,6 +42,9 @@ const PeopleCreate = () => {
             title='Agregar persona'
             unresponsive
         >
+            <Box fontSize='1.5rem' fontWeight={900} width='100%' paddingTop='2rem'>
+                Datos generales
+            </Box>
             <InputContainer label='Nombre' md='6'>
                 <TextInput
                     name="name"
@@ -46,7 +52,7 @@ const PeopleCreate = () => {
                     fullWidth
                 />
             </InputContainer>
-            <InputContainer label='Nombre' md='6'>
+            <InputContainer label='Cédula' md='3'>
                 <TextInput
                     parse={identityCardFormat}
                     name="dni"
@@ -54,14 +60,7 @@ const PeopleCreate = () => {
                     fullWidth
                 />
             </InputContainer>
-            <InputContainer label='Nombre' md='6'>
-                <TextInput
-                    name="address"
-                    placeholder="Calle Wallaby 42"
-                    fullWidth
-                />
-            </InputContainer>
-            <InputContainer label='Teléfono' md='6'>
+            <InputContainer label='Teléfono' md='3'>
                 <TextInput
                     parse={phoneFormat}
                     name="phone"
@@ -69,8 +68,20 @@ const PeopleCreate = () => {
                     fullWidth
                 />
             </InputContainer>
+            <Box fontSize='1.5rem' fontWeight={900} width='100%' padding='1rem 0'>
+                Dirección
+            </Box>
             <SelectParishInput />
             <SelectCommunityInput />
+            <SelectSectorInput />
+            <SelectStreetInput />
+            <InputContainer label='Dirección exacta' md='12'>
+                <TextInput
+                    name="address"
+                    placeholder="Calle Wallaby 42"
+                    fullWidth
+                />
+            </InputContainer>
         </BaseForm>
     )
 }
