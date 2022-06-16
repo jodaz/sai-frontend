@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
 import SelectParishInput from './SelectParishInput';
 import SelectCommunityInput from './SelectCommunityInput';
+import { phoneFormat, identityCardFormat } from '../../formatters'
 
 const PeopleCreate = () => {
     const navigate = useNavigate()
@@ -47,6 +48,7 @@ const PeopleCreate = () => {
             </InputContainer>
             <InputContainer label='Nombre' md='6'>
                 <TextInput
+                    parse={identityCardFormat}
                     name="dni"
                     placeholder="V-12345678"
                     fullWidth
@@ -61,6 +63,7 @@ const PeopleCreate = () => {
             </InputContainer>
             <InputContainer label='Teléfono' md='6'>
                 <TextInput
+                    parse={phoneFormat}
                     name="phone"
                     placeholder="(XXX) XXX-XXXX"
                     fullWidth
