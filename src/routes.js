@@ -27,6 +27,7 @@ import UserEdit from './pages/users/UserEdit'
 import UserCreate from './pages/users/UserCreate'
 import Dashboard from './pages/dashboard'
 import ApplicationList from './pages/applications/ApplicationList';
+import ApplicationCreate from './pages/applications/ApplicationCreate';
 import PeopleShow from './pages/people/PeopleShow'
 
 const routes = [
@@ -49,6 +50,10 @@ const routes = [
     {
         path: '/people/create',
         component: <PeopleCreate />
+    },
+    {
+        path: '/people/:id/applications/create',
+        component: <ApplicationCreate />
     },
     {
         path: '/applications',

@@ -9,6 +9,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LinkIconButton from '../../components/LinkIconButton';
 import LoadingIndicator from '../../components/LoadingIndicator'
 import { setTitle, useAdmin } from '../../context/AdminContext'
+import ListPeopleApplications from './ListPeopleApplications';
 
 const PeopleShow = props => {
     const { dispatch } = useAdmin()
@@ -80,6 +81,7 @@ const PeopleShow = props => {
                     <LinkIconButton href={`/people/${record.id}/edit`} />
                 </Box>
             </Box>
+            <ListPeopleApplications />
         </Box>
     )
 }

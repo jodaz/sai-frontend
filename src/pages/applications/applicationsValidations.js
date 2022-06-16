@@ -1,0 +1,15 @@
+export const applicationCreateValidation = (values) => {
+    const errors = {};
+
+    if (!values.title) {
+        errors.title = "Ingrese un nombre para el título.";
+    }
+    if (!values.category_id) {
+        errors.category_id = "Seleccione una categoría.";
+    }
+    if (!values.subcategory_id) {
+        errors.subcategory_id = "Seleccione una subcategoría.";
+    }
+
+    return errors;
+};

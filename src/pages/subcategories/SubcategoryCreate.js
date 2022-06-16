@@ -6,7 +6,7 @@ import TextInput from '../../components/TextInput'
 import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
-import SelectCategoryInput from './SelectCategoryInput'
+import SelectCategoryInput from '../../forms/SelectCategoryInput'
 
 const ItemCreate = () => {
     const navigate = useNavigate()

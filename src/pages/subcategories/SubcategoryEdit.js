@@ -6,7 +6,7 @@ import TextInput from '../../components/TextInput'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
-import SelectCategoryInput from './SelectCategoryInput';
+import SelectCategoryInput from '../../forms/SelectCategoryInput'
 
 const SubcategoryEdit = () => {
     const { id } = useParams();
