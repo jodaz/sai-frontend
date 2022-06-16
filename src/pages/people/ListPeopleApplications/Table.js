@@ -166,9 +166,27 @@ export default function EnhancedTable({
                                         id={labelId}
                                         scope="row"
                                         padding="none"
-                                        width='100%'
+                                        width={'40%'}
                                     >
-                                        {row.name}
+                                        {row.title}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        id={labelId}
+                                        scope="row"
+                                        padding="none"
+                                        width={'40%'}
+                                    >
+                                        {row.subcategory.name}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        id={labelId}
+                                        scope="row"
+                                        padding="none"
+                                        width={'40%'}
+                                    >
+                                        {row.state.name}
                                     </TableCell>
                                     <TableCell
                                         scope="row"

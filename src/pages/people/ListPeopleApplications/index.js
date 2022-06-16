@@ -17,6 +17,18 @@ const headCells = [
         label: 'Nombre',
     },
     { 
+        id: 'subcategory',
+        numeric: false,
+        disablePadding: true,
+        label: 'Subcategoría',
+    },
+    { 
+        id: 'state',
+        numeric: false,
+        disablePadding: true,
+        label: 'Estado',
+    },
+    { 
         id: 'actions',
         numeric: false,
         disablePadding: true,
