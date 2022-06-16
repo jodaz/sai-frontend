@@ -14,6 +14,7 @@ import TableToolbar from '../../components/TableToolbar'
 import DeleteButton from '../../components/DeleteButton'
 import { useSnackbar } from 'notistack';
 import axios from '../../api'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -175,6 +176,10 @@ export default function EnhancedTable({
                                     >
                                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                                             <LinkIconButton href={`/people/${row.id}/edit`} />
+                                            <LinkIconButton
+                                                href={`/people/${row.id}`} 
+                                                icon={<RemoveRedEyeIcon />}
+                                            />
                                             <DeleteButton
                                                 title={`¿Está seguro que desea eliminar la persona "${row.name}"?`}
                                                 onClick={() => handleDelete(row)}

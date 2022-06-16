@@ -27,6 +27,7 @@ import UserEdit from './pages/users/UserEdit'
 import UserCreate from './pages/users/UserCreate'
 import Dashboard from './pages/dashboard'
 import ApplicationList from './pages/applications/ApplicationList';
+import PeopleShow from './pages/people/PeopleShow'
 
 const routes = [
     {
@@ -40,6 +41,10 @@ const routes = [
     {
         path: '/people/:id/edit',
         component: <PeopleEdit />
+    },
+    {
+        path: '/people/:id',
+        component: <PeopleShow />
     },
     {
         path: '/people/create',
