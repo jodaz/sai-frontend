@@ -9,7 +9,7 @@ import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { routes, geographicAreaRoutes, adminRoutes } from '../routes'
+import { routes, geographicAreaRoutes, adminRoutes } from './routes'
 import ListItemLink from '../components/ListItemLink';
 import { useAdmin } from '../context/AdminContext'
 import AccountMenu from './AccountMenu'

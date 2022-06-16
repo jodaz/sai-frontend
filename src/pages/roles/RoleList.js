@@ -23,7 +23,7 @@ const headCells = [
     }
 ];
 
-const StreetList = () => {
+const ItemList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
@@ -33,7 +33,7 @@ const StreetList = () => {
         error,
         data,
         hasMore
-    } = useFetch('/people', {
+    } = useFetch('/roles', {
         perPage: 10,
         page: 1,
         filter: filter
@@ -50,7 +50,7 @@ const StreetList = () => {
     }
 
     return (
-        <ListContainer title="Personas">
+        <ListContainer title="Roles">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'}>
                     <TextField
@@ -70,7 +70,7 @@ const StreetList = () => {
                     <ButtonLink
                         color="primary"
                         variant="contained"
-                        to="/people/create"
+                        to="/roles/create"
                     />
                 </Box>
             </Box>
@@ -81,4 +81,4 @@ const StreetList = () => {
     )
 }
 
-export default StreetList
+export default ItemList

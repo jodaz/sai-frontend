@@ -34,12 +34,7 @@ const SubcategoryList = () => {
         theme.breakpoints.down('sm')
     )
     const [filter, setFilter] = React.useState({})
-    const {
-        loading,
-        error,
-        data,
-        hasMore
-    } = useFetch('/subcategories', {
+    const { data } = useFetch('/subcategories', {
         perPage: 10,
         page: 1,
         filter: filter
@@ -56,7 +51,7 @@ const SubcategoryList = () => {
     }
 
     return (
-        <ListContainer title="Rubros">
+        <ListContainer title="Subcategorías">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'}>
                     <TextField

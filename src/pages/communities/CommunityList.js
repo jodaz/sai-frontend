@@ -50,7 +50,7 @@ const ItemList = () => {
     }
 
     return (
-        <ListContainer title="Categorias">
+        <ListContainer title="Comunidades">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'}>
                     <TextField

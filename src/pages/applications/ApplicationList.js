@@ -5,7 +5,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { useMediaQuery } from '@mui/material'
 import useFetch from '../../hooks/useFetch'
 import Table from './Table'
-import ButtonLink from '../../components/ButtonLink'
 import ListContainer from '../../components/ListContainer';
 
 const headCells = [
@@ -23,17 +22,12 @@ const headCells = [
     }
 ];
 
-const StreetList = () => {
+const ApplicationList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
     const [filter, setFilter] = React.useState({})
-    const {
-        loading,
-        error,
-        data,
-        hasMore
-    } = useFetch('/people', {
+    const { data } = useFetch('/applications', {
         perPage: 10,
         page: 1,
         filter: filter
@@ -50,7 +44,7 @@ const StreetList = () => {
     }
 
     return (
-        <ListContainer title="Personas">
+        <ListContainer title="Solicitudes">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'}>
                     <TextField
@@ -66,13 +60,6 @@ const StreetList = () => {
                         fullWidth
                     />
                 </Box>
-                <Box>
-                    <ButtonLink
-                        color="primary"
-                        variant="contained"
-                        to="/people/create"
-                    />
-                </Box>
             </Box>
             <Box>
                 <Table headCells={headCells} data={data} />
@@ -81,4 +68,4 @@ const StreetList = () => {
     )
 }
 
-export default StreetList
+export default ApplicationList

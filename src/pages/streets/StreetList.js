@@ -50,7 +50,7 @@ const StreetList = () => {
     }
 
     return (
-        <ListContainer title="Categorias">
+        <ListContainer title="Calles">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'}>
                     <TextField

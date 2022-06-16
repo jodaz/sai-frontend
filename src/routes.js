@@ -1,79 +1,150 @@
-import HomeIcon from '@mui/icons-material/Home';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import StyleIcon from '@mui/icons-material/Style';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import PeopleIcon from '@mui/icons-material/People';
-import SupportIcon from '@mui/icons-material/Support';
+import SubcategoryList from './pages/subcategories/SubcategoryList'
+import SubcategoryEdit from './pages/subcategories/SubcategoryEdit'
+import SubcategoryCreate from './pages/subcategories/SubcategoryCreate'
+import SectorList from './pages/sectors/SectorList'
+import SectorEdit from './pages/sectors/SectorEdit'
+import SectorCreate from './pages/sectors/SectorCreate'
+import CategorysList from './pages/categories/CategoryList'
+import CategoryEdit from './pages/categories/CategoryEdit'
+import CategoryCreate from './pages/categories/CategoryCreate'
+import CommunityList from './pages/communities/CommunityList'
+import CommunityEdit from './pages/communities/CommunityEdit'
+import CommunityCreate from './pages/communities/CommunityCreate'
+import PeopleList from './pages/people/PeopleList'
+import PeopleEdit from './pages/people/PeopleEdit'
+import PeopleCreate from './pages/people/PeopleCreate'
+import ParishList from './pages/parishes/ParishList'
+import ParishEdit from './pages/parishes/ParishEdit'
+import ParishCreate from './pages/parishes/ParishCreate'
+import StreetList from './pages/streets/StreetList'
+import StreetEdit from './pages/streets/StreetEdit'
+import StreetCreate from './pages/streets/StreetCreate'
+import RoleList from './pages/roles/RoleList'
+import RoleEdit from './pages/roles/RoleEdit'
+import RoleCreate from './pages/roles/RoleCreate'
+import UserList from './pages/users/UserList'
+import UserEdit from './pages/users/UserEdit'
+import UserCreate from './pages/users/UserCreate'
+import Dashboard from './pages/dashboard'
+import ApplicationList from './pages/applications/ApplicationList';
 
-const AdminIcon = () => (
-    <FiberManualRecordIcon sx={{
-        color: theme => theme.palette.primary.main,
-        marginLeft: '1rem',
-        paddingRight: '-1rem',
-        fontSize: '0.7rem'
-    }}/>
-)
-
-export const routes = [
+const routes = [
     {
-        name: 'Inicio',
-        route: '/',
-        icon: <HomeIcon />
+        path: '/',
+        component: <Dashboard />
     },
     {
-        name: 'Personas',
-        route: '/people',
-        icon: <PeopleIcon />
+        path: '/people',
+        component: <PeopleList />
     },
     {
-        name: 'Solicitudes',
-        route: '/applications',
-        icon: <SupportIcon />
+        path: '/people/:id/edit',
+        component: <PeopleEdit />
     },
     {
-        name: 'Categorias',
-        route: '/categories',
-        icon: <LocalOfferIcon />
+        path: '/people/create',
+        component: <PeopleCreate />
     },
     {
-        name: 'Subcategorías',
-        route: '/subcategories',
-        icon: <StyleIcon />
+        path: '/applications',
+        component: <ApplicationList />
+    },
+    {
+        path: '/categories',
+        component: <CategorysList />
+    },
+    {
+        path: '/categories/:id/edit',
+        component: <CategoryEdit />
+    },
+    {
+        path: '/categories/create',
+        component: <CategoryCreate />
+    },
+    {
+        path: '/subcategories',
+        component: <SubcategoryList />
+    },
+    {
+        path: '/subcategories/:id/edit',
+        component: <SubcategoryEdit />
+    },
+    {
+        path: '/subcategories/create',
+        component: <SubcategoryCreate />
+    },
+    {
+        path: '/parishes',
+        component: <ParishList />
+    },
+    {
+        path: '/parishes/:id/edit',
+        component: <ParishEdit />
+    },
+    {
+        path: '/parishes/create',
+        component: <ParishCreate />
+    },
+    {
+        path: '/communities',
+        component: <CommunityList />
+    },
+    {
+        path: '/communities/:id/edit',
+        component: <CommunityEdit />
+    },
+    {
+        path: '/communities/create',
+        component: <CommunityCreate />
+    },
+    {
+        path: '/sectors',
+        component: <SectorList />
+    },
+    {
+        path: '/sectors/:id/edit',
+        component: <SectorEdit />
+    },
+    {
+        path: '/sectors/create',
+        component: <SectorCreate />
+    },
+    {
+        path: '/streets',
+        component: <StreetList />
+    },
+    {
+        path: '/streets/:id/edit',
+        component: <StreetEdit />
+    },
+    {
+        path: '/streets/create',
+        component: <StreetCreate />
+    },
+    {
+        path: '/users',
+        component: <UserList />
+    },
+    {
+        path: '/users/:id/edit',
+        component: <UserEdit />
+    },
+    {
+        path: '/users/create',
+        component: <UserCreate />
+    },
+    {
+        path: '/roles',
+        component: <RoleList />
+    },
+    {
+        path: '/roles/:id/edit',
+        component: <RoleEdit />
+    },
+    {
+        path: '/roles/create',
+        component: <RoleCreate />
     },
 ]
 
-export const geographicAreaRoutes = [
-    // {
-    //     name: 'Municipios',
-    //     route: '/municipalities',
-    //     icon: <AdminIcon />
-    // },
-    {
-        name: 'Parroquias',
-        route: '/parishes',
-        icon: <AdminIcon />
-    },
-    {
-        name: 'Comunidades',
-        route: '/communities',
-        icon: <AdminIcon />
-    },
-    {
-        name: 'Sectores',
-        route: '/sectors',
-        icon: <AdminIcon />
-    },
-    {
-        name: 'Calles',
-        route: '/streets',
-        icon: <AdminIcon />
-    }
-]
-
-export const adminRoutes = [
-    {
-        name: 'Usuarios',
-        route: '/users',
-        icon: <AdminIcon />
-    }
-]
+export default routes
