@@ -29,6 +29,7 @@ import Dashboard from './pages/dashboard'
 import ApplicationList from './pages/applications/ApplicationList';
 import ApplicationCreate from './pages/applications/ApplicationCreate';
 import PeopleShow from './pages/people/PeopleShow'
+import ApplicationShow from './pages/applications/ApplicationShow'
 
 const routes = [
     {
@@ -54,6 +55,10 @@ const routes = [
     {
         path: '/people/:id/applications/create',
         component: <ApplicationCreate />
+    },
+    {
+        path: '/applications/:id',
+        component: <ApplicationShow />
     },
     {
         path: '/applications',
