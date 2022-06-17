@@ -9,9 +9,8 @@ import SelectCategoryInput from '../../forms/SelectCategoryInput'
 import { useSnackbar } from 'notistack';
 import SelectSubcategoryInput from './SelectSubcategoryInput'
 
-const SectorEdit = () => {
+const ApplicationCreate = () => {
     const { id } = useParams();
-    const [record, setRecord] = React.useState(null)
     const navigate = useNavigate()
     const { enqueueSnackbar } = useSnackbar();
 
@@ -36,23 +35,10 @@ const SectorEdit = () => {
         }
     }, [id])
 
-    const fetchRecord = React.useCallback(async () => {
-        const { data } = await axios.get(`/sectors/${id}`);
-
-        setRecord(data);
-    }, []);
-
-    React.useEffect(() => {
-        fetchRecord()
-    }, [])
-
-    if (!record) return null;
-
     return (
         <BaseForm
             save={save}
             validate={applicationCreateValidation}
-            record={record}
             saveButtonLabel='Enviar'
             title={`Nueva solicitud`}
         >
@@ -83,4 +69,4 @@ const SectorEdit = () => {
     )
 }
 
-export default SectorEdit
+export default ApplicationCreate
