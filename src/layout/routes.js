@@ -1,6 +1,4 @@
 import HomeIcon from '@mui/icons-material/Home';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import StyleIcon from '@mui/icons-material/Style';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PeopleIcon from '@mui/icons-material/People';
 import SupportIcon from '@mui/icons-material/Support';
@@ -29,17 +27,7 @@ export const routes = [
         name: 'Solicitudes',
         route: '/applications',
         icon: <SupportIcon />
-    },
-    {
-        name: 'Categorias',
-        route: '/categories',
-        icon: <LocalOfferIcon />
-    },
-    {
-        name: 'Subcategorías',
-        route: '/subcategories',
-        icon: <StyleIcon />
-    },
+    }
 ]
 
 export const geographicAreaRoutes = [
@@ -76,4 +64,22 @@ export const adminRoutes = [
         route: '/roles',
         icon: <AdminIcon />
     }
+]
+
+export const settingsRoutes = [
+    {
+        name: 'Cargos',
+        route: '/positions',
+        icon: <AdminIcon />
+    },
+    {
+        name: 'Categorias',
+        route: '/categories',
+        icon: <AdminIcon />
+    },
+    {
+        name: 'Subcategorías',
+        route: '/subcategories',
+        icon: <AdminIcon />
+    },
 ]

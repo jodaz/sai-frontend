@@ -9,7 +9,12 @@ import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { routes, geographicAreaRoutes, adminRoutes } from './routes'
+import {
+    routes,
+    geographicAreaRoutes,
+    adminRoutes,
+    settingsRoutes
+} from './routes'
 import ListItemLink from '../components/ListItemLink';
 import { useAdmin } from '../context/AdminContext'
 import AccountMenu from './AccountMenu'
@@ -18,12 +23,14 @@ import Submenu from '../components/Submenu';
 import PublicIcon from '@mui/icons-material/Public';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import GoBackButton from './GoBackButton'
+import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 
 const drawerWidth = 240;
 
 function ResponsiveDrawer() {
     const [state, setState] = React.useState({
         geographicArea: false,
+        settingsArea: false,
         administrative: false
     });
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -50,6 +57,22 @@ function ResponsiveDrawer() {
                         key={index}
                     />
                 ))}
+                <Submenu
+                    handleToggle={() => handleToggle('settingsArea')}
+                    isOpen={state.settingsArea}
+                    sidebarIsOpen={true}
+                    name='Configuraciones'
+                    icon={<DisplaySettingsIcon />}
+                >
+                    {settingsRoutes.map((route, index) => (
+                        <ListItemLink
+                            primary={route.name}
+                            to={route.route}
+                            icon={route.icon}
+                            key={index}
+                        />
+                    ))}
+                </Submenu>
                 <Submenu
                     handleToggle={() => handleToggle('geographicArea')}
                     isOpen={state.geographicArea}

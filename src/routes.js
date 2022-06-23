@@ -30,6 +30,9 @@ import ApplicationList from './pages/applications/ApplicationList';
 import ApplicationCreate from './pages/applications/ApplicationCreate';
 import PeopleShow from './pages/people/PeopleShow'
 import ApplicationShow from './pages/applications/ApplicationShow'
+import PositionList from './pages/positions/PositionList'
+import PositionEdit from './pages/positions/PositionEdit'
+import PositionCreate from './pages/positions/PositionCreate'
 
 const routes = [
     {
@@ -75,6 +78,18 @@ const routes = [
     {
         path: '/categories/create',
         component: <CategoryCreate />
+    },
+    {
+        path: '/positions',
+        component: <PositionList />
+    },
+    {
+        path: '/positions/:id/edit',
+        component: <PositionEdit />
+    },
+    {
+        path: '/positions/create',
+        component: <PositionCreate />
     },
     {
         path: '/subcategories',
