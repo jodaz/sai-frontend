@@ -28,7 +28,7 @@ const SelectPositionInput = ({ disabled }) => {
                     placeholder="Nombre"
                     fullWidth
                     options={options}
-
+                    multiple
                 />
             )}
         </InputContainer>
