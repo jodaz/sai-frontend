@@ -18,7 +18,7 @@ const CategoryEdit = () => {
             const { data } = await axios.put(`/categories/${id}`, values)
 
             if (data) {
-                navigate('/items')
+                navigate('/categories')
                 enqueueSnackbar(`¡Ha la categoría "${data.name}"`, { variant: 'success' });
             }
         } catch (error) {
@@ -29,7 +29,7 @@ const CategoryEdit = () => {
     }, [id])
 
     const fetchRecord = React.useCallback(async () => {
-        const { data } = await axios.get(`/items/${id}`);
+        const { data } = await axios.get(`/categories/${id}`);
 
         setRecord(data);
     }, []);

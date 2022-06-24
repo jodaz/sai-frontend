@@ -11,6 +11,7 @@ import SelectCommunityInput from './SelectCommunityInput';
 import { phoneFormat, identityCardFormat } from '../../formatters'
 import SelectSectorInput from './SelectSectorInput';
 import SelectStreetInput from './SelectStreetInput';
+import SelectPositionInput from './SelectPositionInput';
 import Box from '@mui/material/Box'
 
 const PeopleCreate = () => {
@@ -82,6 +83,8 @@ const PeopleCreate = () => {
                     fullWidth
                 />
             </InputContainer>
+
+            <SelectPositionInput />
         </BaseForm>
     )
 }

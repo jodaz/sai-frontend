@@ -25,6 +25,9 @@ export const validateItem = (values) => {
     if (!values.street_id) {
         errors.street_id = "Seleccione una calle.";
     }
+    if (!values.positions) {
+        errors.positions = "Seleccione un cargo.";
+    }
 
     return errors;
 };

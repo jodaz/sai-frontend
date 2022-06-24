@@ -47,7 +47,7 @@ const SubcategoryEdit = () => {
             validate={validateItem}
             record={record}
             saveButtonLabel='Actualizar'
-            title={`Editando rubro #${record.id}`}
+            title={`Editando subcategoría #${record.id}`}
         >
             <InputContainer label='Nombre'>
                 <TextInput
