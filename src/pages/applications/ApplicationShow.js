@@ -6,10 +6,13 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import TextField from '../../components/TextField';
 import EmailIcon from '@mui/icons-material/Email';
+import PositionIcon from '@mui/icons-material/AccountBox';
 import LoadingIndicator from '../../components/LoadingIndicator'
 import { setTitle, useAdmin } from '../../context/AdminContext'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CheckIcon from '@mui/icons-material/Check';
+import PendingIcon from '@mui/icons-material/PendingActions';
+import RejectIcon from '@mui/icons-material/HighlightOff';
 import StyleIcon from '@mui/icons-material/Style';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 
@@ -69,19 +72,40 @@ const PeopleShow = () => {
                             {rest.description}
                         </Box>
                     )}
-                    <Box width='100%' marginTop='1rem' display='flex'>
-                        <TextField
-                            source={state.name}
-                            icon={<CheckIcon />}
-                        />
+                    <Box width='100%' marginTop='1rem' display='flex' justifyContent= 'space-evenly'>
+                        
+
+                        {(state.id == '1') && (
+                            <TextField
+                                source={state.name}
+                                icon={<PendingIcon />}
+                            />
+                        )}
+                        
+                        {(state.id == '2') && (
+                            <TextField
+                                source={state.name}
+                                icon={<CheckIcon />}
+                            />
+                        )}
+
+                        {(state.id == '3') && (
+                         <TextField
+                                source={state.name}
+                                icon={<RejectIcon />}
+                            />
+                        )}
+
                         <TextField
                             source={subcategory.name}
                             icon={<StyleIcon />}
+                            
                         />
                         {(rest.quantity) && (
                             <TextField
                                 source={rest.quantity}
                                 icon={<FormatListNumberedIcon />}
+                                marginLeft='1rem'
                             />
                         )}
                     </Box>
@@ -123,9 +147,9 @@ const PeopleShow = () => {
                                 icon={<LocalPhoneIcon />}
                             />
                         )}
-                        {person.email && (
+                        {person.positions && (
                             <TextField
-                                source={person.email}
+                                source={person.positions.name}
                                 icon={<EmailIcon />}
                             />
                         )}

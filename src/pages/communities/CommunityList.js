@@ -34,7 +34,7 @@ const ItemList = () => {
         data,
         hasMore
     } = useFetch('/communities', {
-        perPage: 10,
+        perPage: 1000,
         page: 1,
         filter: filter
     })
@@ -75,7 +75,7 @@ const ItemList = () => {
                 </Box>
             </Box>
             <Box>
-                <Table headCells={headCells} data={data} />
+                <Table headCells={headCells} data={data}/>
             </Box>
         </ListContainer>
     )

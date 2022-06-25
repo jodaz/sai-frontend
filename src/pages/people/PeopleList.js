@@ -34,7 +34,7 @@ const StreetList = () => {
         data,
         hasMore
     } = useFetch('/people', {
-        perPage: 10,
+        perPage: 1000000,
         page: 1,
         filter: filter
     })

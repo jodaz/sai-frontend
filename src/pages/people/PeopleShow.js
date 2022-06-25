@@ -10,6 +10,8 @@ import LinkIconButton from '../../components/LinkIconButton';
 import LoadingIndicator from '../../components/LoadingIndicator'
 import { setTitle, useAdmin } from '../../context/AdminContext'
 import ListPeopleApplications from './ListPeopleApplications';
+import PositionIcon from '@mui/icons-material/AccountBox';
+
 
 const PeopleShow = props => {
     const { dispatch } = useAdmin()
@@ -69,10 +71,10 @@ const PeopleShow = props => {
                                 icon={<LocalPhoneIcon />}
                             />
                         )}
-                        {record.email && (
+                        {record.positions[0].name && (
                             <TextField
-                                source={record.email}
-                                icon={<EmailIcon />}
+                                source={record.positions[0].name }
+                                icon={<PositionIcon />}
                             />
                         )}
                     </Box>

@@ -34,7 +34,7 @@ const ItemList = () => {
         data,
         hasMore
     } = useFetch('/users', {
-        perPage: 10,
+        perPage: 10000,
         page: 1,
         filter: filter
     })

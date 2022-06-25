@@ -34,7 +34,7 @@ const SectorList = () => {
         data,
         hasMore
     } = useFetch('/sectors', {
-        perPage: 10,
+        perPage: 100000,
         page: 1,
         filter: filter
     })

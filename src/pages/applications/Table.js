@@ -11,6 +11,8 @@ import Checkbox from '@mui/material/Checkbox';
 import TableHead from '../../components/TableHead'
 import TableToolbar from '../../components/TableToolbar'
 import DeleteButton from '../../components/DeleteButton'
+import LinkIconButton from '../../components/LinkIconButton'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { useSnackbar } from 'notistack';
 import axios from '../../api'
 
@@ -109,8 +111,8 @@ export default function EnhancedTable({
 
         if (data) {
             enqueueSnackbar(
-                `¡Ha eliminado la solicitud "${data.name}"`, 
-                { variant: 'success' }
+                `${data.message}`, 
+                { variant: `${data.success}` }
             );
         }
     }, [])
@@ -172,9 +174,14 @@ export default function EnhancedTable({
                                         scope="row"
                                         align='right'
                                     >
+
                                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                                            <LinkIconButton
+                                                href={`/applications/${row.id}`} 
+                                                icon={<RemoveRedEyeIcon />}
+                                            />
                                             <DeleteButton
-                                                title={`¿Está seguro que desea eliminar la solicitud "${row.title}"?`}
+                                                title={`¿Está seguro que desea rechazar la solicitud "${row.title}"?`}
                                                 onClick={() => handleDelete(row)}
                                             />
                                         </Box>

@@ -111,8 +111,8 @@ export default function EnhancedTable({
 
         if (data) {
             enqueueSnackbar(
-                `¡Ha eliminado la persona "${data.name}"`, 
-                { variant: 'success' }
+                `${data.message}`, 
+                { variant: `${data.success}` }
             );
         }
     }, [])
@@ -198,7 +198,7 @@ export default function EnhancedTable({
                                                 icon={<RemoveRedEyeIcon />}
                                             />
                                             <DeleteButton
-                                                title={`¿Está seguro que desea eliminar la persona "${row.name}"?`}
+                                                title={`¿Está seguro que desea rechazar la solicitud "${row.title}"?`}
                                                 onClick={() => handleDelete(row)}
                                             />
                                         </Box>
