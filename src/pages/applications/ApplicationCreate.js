@@ -22,7 +22,7 @@ const ApplicationCreate = () => {
             });
 
             if (data) {
-                navigate(`/people/${id}`)
+                navigate(`/applications/${id}`)
                 enqueueSnackbar(
                     `¡Ha registrado la solicitud "${data.num}"`, 
                     { variant: 'success' }

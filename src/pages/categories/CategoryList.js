@@ -34,7 +34,7 @@ const ItemList = () => {
         data,
         hasMore
     } = useFetch('/categories', {
-        perPage: 10,
+        perPage: 1000,
         page: 1,
         filter: filter
     })

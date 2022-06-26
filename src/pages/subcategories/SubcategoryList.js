@@ -35,7 +35,7 @@ const SubcategoryList = () => {
     )
     const [filter, setFilter] = React.useState({})
     const { data } = useFetch('/subcategories', {
-        perPage: 10,
+        perPage: 10000,
         page: 1,
         filter: filter
     })

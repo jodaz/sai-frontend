@@ -28,7 +28,7 @@ const ApplicationList = () => {
     )
     const [filter, setFilter] = React.useState({})
     const { data } = useFetch('/applications', {
-        perPage: 10,
+        perPage: 100000,
         page: 1,
         filter: filter
     })

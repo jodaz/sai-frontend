@@ -29,7 +29,7 @@ const PositionList = () => {
     )
     const [filter, setFilter] = React.useState({})
     const { data } = useFetch('/positions', {
-        perPage: 10,
+        perPage: 100,
         page: 1,
         filter: filter
     })
