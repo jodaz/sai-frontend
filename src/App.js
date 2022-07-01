@@ -11,6 +11,7 @@ import Layout from './layout'
 import routes from './routes'
 import Login from './pages/auth/Login'
 import Security from './pages/account/Security';
+import NotFound from './pages/404';
 
 function App() {
     return (
@@ -20,20 +21,22 @@ function App() {
                     <AdminProvider>
                         <AuthProvider>
                             <Routes>
+                                <Route path='*' element={<NotFound />} />
                                 <Route path='/login' element={<Login />} />
                                 <Route
                                     path="/security"
                                     element={
-                                        <Layout>
+                                        <Layout authorize='admin'>
                                             <Security />
                                         </Layout>
                                     }
                                 />
-                                {routes.map(route => (
+                                {routes.map((route, key) => (
                                     <Route
+                                        key={key}
                                         path={route.path}
                                         element={
-                                            <Layout>
+                                            <Layout authorize={route.roles}>
                                                 {route.component}
                                             </Layout>
                                         }

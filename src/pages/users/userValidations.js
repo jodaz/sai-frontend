@@ -1,17 +1,8 @@
 const generalUserValidations = values => {
     const errors = {};
 
-    if (!values.names) {
-        errors.names = "Ingrese el nombre de la persona.";
-    }
-    if (!values.identity_card) {
-        errors.identity_card = "Ingrese la cédula de identidad.";
-    }
     if (!values.login) {
         errors.login = "Ingrese un login.";
-    }
-    if (!values.surnames) {
-        errors.surnames = "Ingrese el apellido.";
     }
 
     return errors;

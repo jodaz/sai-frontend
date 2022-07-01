@@ -8,7 +8,7 @@ import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
 import SelectRolesInput from './SelectRolesInput';
-import { identityCardFormat } from '../../formatters'
+import { identityCard } from './userTextFormats'
 
 const UserCreate = () => {
     const navigate = useNavigate()
@@ -39,28 +39,6 @@ const UserCreate = () => {
             title='Agregar usuario'
             unresponsive
         >
-            <InputContainer label='Cédula de identidad'>
-                <TextInput
-                    name="identity_card"
-                    placeholder="Cédula de identidad"
-                    parse={identityCardFormat}
-                    fullWidth
-                />
-            </InputContainer>
-            <InputContainer label='Nombre(s)'>
-                <TextInput
-                    name="names"
-                    placeholder="Nombre"
-                    fullWidth
-                />
-            </InputContainer>
-            <InputContainer label='Apellido(s)'>
-                <TextInput
-                    name="surnames"
-                    placeholder="Apellido(s)"
-                    fullWidth
-                />
-            </InputContainer>
             <InputContainer label='Login'>
                 <TextInput
                     name="login"

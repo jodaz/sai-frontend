@@ -24,6 +24,8 @@ import PublicIcon from '@mui/icons-material/Public';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import GoBackButton from './GoBackButton'
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
+import { useNavigate } from 'react-router-dom'
+import { alpha } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -33,6 +35,7 @@ function ResponsiveDrawer() {
         settingsArea: false,
         administrative: false
     });
+    const navigate = useNavigate();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { state: AdminState } = useAdmin()
 
@@ -46,8 +49,21 @@ function ResponsiveDrawer() {
 
     const drawer = (
         <div>
-            <Toolbar />
-            <Divider />
+            <Box onClick={() => navigate('/')} sx={{
+                padding: '1rem 0',
+                display: 'flex',
+                fontWeight: 600,
+                justifyContent: 'center',
+                fontSize: '1.75rem',
+                color: theme => theme.palette.primary.main,
+                cursor: 'pointer',
+                transition: '0.3s',
+                '&:hover': {
+                    backgroundColor: theme => alpha(theme.palette.text.primary, 0.05)
+                }
+            }}>
+                {process.env.REACT_APP_NAME}
+            </Box>
             <List>
                 {routes.map((route, index) => (
                     <ListItemLink

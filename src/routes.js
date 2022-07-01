@@ -37,143 +37,178 @@ import PositionCreate from './pages/positions/PositionCreate'
 const routes = [
     {
         path: '/',
-        component: <Dashboard />
+        component: <Dashboard />,
+        roles: 'admin'
     },
     {
         path: '/people',
-        component: <PeopleList />
+        component: <PeopleList />,
+        roles: 'admin'
     },
     {
         path: '/people/:id/edit',
-        component: <PeopleEdit />
+        component: <PeopleEdit />,
+        roles: 'admin'
     },
     {
         path: '/people/:id',
-        component: <PeopleShow />
+        component: <PeopleShow />,
+        roles: 'admin'
     },
     {
         path: '/people/create',
-        component: <PeopleCreate />
+        component: <PeopleCreate />,
+        roles: 'admin'
     },
     {
         path: '/people/:id/applications/create',
-        component: <ApplicationCreate />
+        component: <ApplicationCreate />,
+        roles: 'admin'
     },
     {
         path: '/applications/:id',
-        component: <ApplicationShow />
+        component: <ApplicationShow />,
+        roles: 'admin'
     },
     {
         path: '/applications',
-        component: <ApplicationList />
+        component: <ApplicationList />,
+        roles: 'admin'
     },
     {
         path: '/categories',
-        component: <CategorysList />
+        component: <CategorysList />,
+        roles: 'admin'
     },
     {
         path: '/categories/:id/edit',
-        component: <CategoryEdit />
+        component: <CategoryEdit />,
+        roles: 'admin'
     },
     {
         path: '/categories/create',
-        component: <CategoryCreate />
+        component: <CategoryCreate />,
+        roles: 'admin'
     },
     {
         path: '/positions',
-        component: <PositionList />
+        component: <PositionList />,
+        roles: 'admin'
     },
     {
         path: '/positions/:id/edit',
-        component: <PositionEdit />
+        component: <PositionEdit />,
+        roles: 'admin'
     },
     {
         path: '/positions/create',
-        component: <PositionCreate />
+        component: <PositionCreate />,
+        roles: 'admin'
     },
     {
         path: '/subcategories',
-        component: <SubcategoryList />
+        component: <SubcategoryList />,
+        roles: 'admin'
     },
     {
         path: '/subcategories/:id/edit',
-        component: <SubcategoryEdit />
+        component: <SubcategoryEdit />,
+        roles: 'admin'
     },
     {
         path: '/subcategories/create',
-        component: <SubcategoryCreate />
+        component: <SubcategoryCreate />,
+        roles: 'admin'
     },
     {
         path: '/parishes',
-        component: <ParishList />
+        component: <ParishList />,
+        roles: 'admin'
     },
     {
         path: '/parishes/:id/edit',
-        component: <ParishEdit />
+        component: <ParishEdit />,
+        roles: 'admin'
     },
     {
         path: '/parishes/create',
-        component: <ParishCreate />
+        component: <ParishCreate />,
+        roles: 'admin'
     },
     {
         path: '/communities',
-        component: <CommunityList />
+        component: <CommunityList />,
+        roles: 'admin'
     },
     {
         path: '/communities/:id/edit',
-        component: <CommunityEdit />
+        component: <CommunityEdit />,
+        roles: 'admin'
     },
     {
         path: '/communities/create',
-        component: <CommunityCreate />
+        component: <CommunityCreate />,
+        roles: 'admin'
     },
     {
         path: '/sectors',
-        component: <SectorList />
+        component: <SectorList />,
+        roles: 'admin'
     },
     {
         path: '/sectors/:id/edit',
-        component: <SectorEdit />
+        component: <SectorEdit />,
+        roles: 'admin'
     },
     {
         path: '/sectors/create',
-        component: <SectorCreate />
+        component: <SectorCreate />,
+        roles: 'admin'
     },
     {
         path: '/streets',
-        component: <StreetList />
+        component: <StreetList />,
+        roles: 'admin'
     },
     {
         path: '/streets/:id/edit',
-        component: <StreetEdit />
+        component: <StreetEdit />,
+        roles: 'admin'
     },
     {
         path: '/streets/create',
-        component: <StreetCreate />
+        component: <StreetCreate />,
+        roles: 'admin'
     },
     {
         path: '/users',
-        component: <UserList />
+        component: <UserList />,
+        roles: 'admin'
     },
     {
         path: '/users/:id/edit',
-        component: <UserEdit />
+        component: <UserEdit />,
+        roles: 'admin'
     },
     {
         path: '/users/create',
-        component: <UserCreate />
+        component: <UserCreate />,
+        roles: 'admin'
     },
     {
         path: '/roles',
-        component: <RoleList />
+        component: <RoleList />,
+        roles: 'admin'
     },
     {
         path: '/roles/:id/edit',
-        component: <RoleEdit />
+        component: <RoleEdit />,
+        roles: 'admin'
     },
     {
         path: '/roles/create',
-        component: <RoleCreate />
+        component: <RoleCreate />,
+        roles: 'admin'
     },
 ]
 

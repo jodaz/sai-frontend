@@ -23,7 +23,7 @@ const getQueryFromParams = ({
     return query;
 }
 
-const useFetch = (url, params = {}) => {
+const useFetch = (url, params) => {
     const [loading, setLoading] = React.useState(true)
     const [error, setError] = React.useState(false)
     const [data, setData] = React.useState([])
@@ -37,7 +37,7 @@ const useFetch = (url, params = {}) => {
     } = params
 
     React.useEffect(() => {
-        if (hasMore == null || hasMore == true) {
+        // if (hasMore == null || hasMore == true) {
             setLoading(true)
             setError(false)
 
@@ -58,7 +58,7 @@ const useFetch = (url, params = {}) => {
             }).catch(e => {
                 setError(true)
             })
-        }
+        // }
     }, [page, perPage, filter, sort])
 
     return { loading, error, data, hasMore, total }

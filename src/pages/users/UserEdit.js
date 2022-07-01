@@ -9,7 +9,7 @@ import axios from '../../api'
 import PasswordInput from '../../components/PasswordInput'
 import { useSnackbar } from 'notistack';
 import SelectRolesInput from './SelectRolesInput';
-import { identityCardFormat } from '../../formatters'
+import { identityCard } from './userTextFormats'
 
 const UserEdit = () => {
     const { id } = useParams();
@@ -55,28 +55,6 @@ const UserEdit = () => {
             saveButtonLabel='Actualizar'
             title={`Editando usuario #${record.id}`}
         >
-            <InputContainer label='Cédula de identidad'>
-                <TextInput
-                    name="identity_card"
-                    placeholder="Cédula de identidad"
-                    parse={identityCardFormat}
-                    fullWidth
-                />
-            </InputContainer>
-            <InputContainer label='Nombre(s)'>
-                <TextInput
-                    name="names"
-                    placeholder="Nombre"
-                    fullWidth
-                />
-            </InputContainer>
-            <InputContainer label='Apellido(s)'>
-                <TextInput
-                    name="surnames"
-                    placeholder="Apellido(s)"
-                    fullWidth
-                />
-            </InputContainer>
             <InputContainer label='Login'>
                 <TextInput
                     name="login"
