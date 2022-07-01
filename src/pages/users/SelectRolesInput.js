@@ -25,7 +25,7 @@ const SelectRolesInput = ({ disabled, name }) => {
             ) : (
                 <SelectInput
                     name={name}
-                    placeholder='Premio'
+                    placeholder='Rol(es)'
                     options={options}
                     multiple
                     source='roles'

@@ -1,23 +1,34 @@
 import * as React from 'react'
 import InputContainer from '../../components/InputContainer'
 import SelectInput from '../../components/SelectInput'
-import useFetch from '../../hooks/useFetch';
+import Box from '@mui/material/Box'
+import axios from '../../api'
 
-const SelectCommunityInput = () => {
-    const { 
-        data, total
-    } = useFetch('/communities')
+const SelectCommunityInput = ({ disabled }) => {
+    const [options, setOptions] = React.useState([])
 
-    if (!total) return null;
+    const fetchOptions = React.useCallback(async () => {
+        const { data: { data } } = await axios.get(`communities`)
+        setOptions(data)
+    }, []);
+
+    React.useEffect(() => {
+        fetchOptions();
+    }, [])
 
     return (
-        <InputContainer label='Comunidad'>
-            <SelectInput
-                name="community_id"
-                placeholder="Nombre"
-                fullWidth
-                options={data}
-            />
+        <InputContainer disabled={disabled} label="Comunidad" md={6} xs={6}>
+            {(!Object.entries(options).length) ? (
+                <Box marginTop='0.5rem' fontSize='0.9rem' fontWeight={300}>
+                    Sin datos
+                </Box>
+            ) : (
+                <SelectInput
+                    name='community_id'
+                    placeholder='Comunidad'
+                    options={options}
+                />
+            )}
         </InputContainer>
     )
 }

@@ -5,14 +5,13 @@ import axios from '../../api'
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import TextField from '../../components/TextField';
-import EmailIcon from '@mui/icons-material/Email';
 import LinkIconButton from '../../components/LinkIconButton';
 import LoadingIndicator from '../../components/LoadingIndicator'
 import { setTitle, useAdmin } from '../../context/AdminContext'
-import ListPeopleApplications from './ListPeopleApplications';
 import PositionIcon from '@mui/icons-material/AccountBox';
+import ApplicationList from '../applications/ApplicationList';
 
-const PeopleShow = props => {
+const PeopleShow = () => {
     const { dispatch } = useAdmin()
     const { id } = useParams();
     const [record, setRecord] = React.useState(null)
@@ -82,7 +81,7 @@ const PeopleShow = props => {
                     <LinkIconButton href={`/people/${record.id}/edit`} />
                 </Box>
             </Box>
-            <ListPeopleApplications />
+            <ApplicationList initialValues={{ person_id: id }} createButton/>
         </Box>
     )
 }

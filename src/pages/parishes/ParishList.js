@@ -36,7 +36,7 @@ const ParishList = () => {
         theme.breakpoints.down('sm')
     )
     const [filter, setFilter] = React.useState({})
-    const { loading, total, data } = useFetch('/items', {
+    const { loading, total, data } = useFetch('/parishes', {
         perPage: 10,
         page: 1,
         filter: filter
@@ -86,7 +86,7 @@ const ParishList = () => {
                         />
                         <LinkIconButton href={`/parishes/${row.id}/edit`} />
                         <DeleteButton
-                            title={`¿Está seguro que desea eliminar el rubro "${row.name}"?`}
+                            title={`¿Está seguro que desea eliminar la parroquia "${row.name}"?`}
                             onClick={() => handleDelete(row)}
                         />
                     </Box>
@@ -97,7 +97,7 @@ const ParishList = () => {
     React.useEffect(() => setItems(data), [data])
 
     return (
-        <ListContainer title="Rubros">
+        <ListContainer title="Parroquias">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'} backgroundColor='#fff'>
                     <TextField
