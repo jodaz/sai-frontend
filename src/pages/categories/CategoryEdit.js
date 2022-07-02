@@ -6,6 +6,7 @@ import TextInput from '../../components/TextInput'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
+import LoadingIndicator from '../../components/LoadingIndicator'
 
 const CategoryEdit = () => {
     const { id } = useParams();
@@ -38,7 +39,7 @@ const CategoryEdit = () => {
         fetchRecord()
     }, [])
 
-    if (!record) return null;
+    if (!record) return <LoadingIndicator />;
 
     return (
         <BaseForm

@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
 import SelectSectorsInput from './SelectSectorsInput'
+import LoadingIndicator from '../../components/LoadingIndicator'
 
 const StreetEdit = () => {
     const { id } = useParams();
@@ -42,7 +43,7 @@ const StreetEdit = () => {
         fetchRecord()
     }, [])
 
-    if (!record) return null;
+    if (!record) return <LoadingIndicator />;
 
     return (
         <BaseForm

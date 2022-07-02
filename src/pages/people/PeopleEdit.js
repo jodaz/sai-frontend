@@ -13,6 +13,7 @@ import SelectSectorInput from './SelectSectorInput';
 import SelectStreetInput from './SelectStreetInput';
 import SelectPositionInput from './SelectPositionInput';
 import Box from '@mui/material/Box'
+import LoadingIndicator from '../../components/LoadingIndicator'
 
 const StreetEdit = () => {
     const { id } = useParams();
@@ -45,7 +46,7 @@ const StreetEdit = () => {
         fetchRecord()
     }, [])
 
-    if (!record) return null;
+    if (!record) return <LoadingIndicator />;
 
     return (
         <BaseForm

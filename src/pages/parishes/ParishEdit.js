@@ -6,6 +6,7 @@ import TextInput from '../../components/TextInput'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
+import LoadingIndicator from '../../components/LoadingIndicator'
 
 const ParishEdit = () => {
     const { id } = useParams();
@@ -41,7 +42,7 @@ const ParishEdit = () => {
         fetchRecord()
     }, [])
 
-    if (!record) return null;
+    if (!record) return <LoadingIndicator />;
 
     return (
         <BaseForm

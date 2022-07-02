@@ -7,6 +7,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from '../../api'
 import { useSnackbar } from 'notistack';
 import SelectCategoryInput from '../../forms/SelectCategoryInput'
+import LoadingIndicator from '../../components/LoadingIndicator'
 
 const SubcategoryEdit = () => {
     const { id } = useParams();
@@ -39,7 +40,7 @@ const SubcategoryEdit = () => {
         fetchRecord()
     }, [])
 
-    if (!record) return null;
+    if (!record) return <LoadingIndicator />;
 
     return (
         <BaseForm
