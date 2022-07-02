@@ -53,7 +53,7 @@ const UserCreate = () => {
                     fullWidth
                 />
             </InputContainer>
-            <SelectRolesInput name='roles_ids' />
+            <SelectRolesInput name='roles' />
         </BaseForm>
     )
 }

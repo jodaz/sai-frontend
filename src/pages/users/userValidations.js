@@ -18,8 +18,8 @@ export const validateCreateUser = (values) => {
     } else if (values.password.length <= 5) {
         errors.password = 'La contraseña debe tener más de 5 caracteres'
     }
-    if (!values.roles_ids) {
-        errors.roles_ids = 'Seleccione uno o más roles';
+    if (!values.roles) {
+        errors.roles = 'Seleccione uno o más roles';
     }
 
     return errors;
