@@ -26,7 +26,7 @@ function App() {
                                 <Route
                                     path="/security"
                                     element={
-                                        <Layout authorize='admin'>
+                                        <Layout authorize='admin,super-admin'>
                                             <Security />
                                         </Layout>
                                     }

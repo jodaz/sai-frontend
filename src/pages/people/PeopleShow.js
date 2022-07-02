@@ -40,7 +40,8 @@ const PeopleShow = () => {
                 display: 'flex',
                 backgroundColor: theme => theme.palette.secondary.main,
                 padding: '1.5rem 1rem',
-                borderRadius: 1
+                borderRadius: 1,
+                marginBottom: '1rem'
             }}>
                 <Box sx={{
                     display: 'flex',

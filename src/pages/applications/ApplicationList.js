@@ -10,9 +10,8 @@ import ListContainer from '../../components/ListContainer';
 import LinkIconButton from '../../components/LinkIconButton';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import DeleteButton from '../../components/DeleteButton'
 import { useSnackbar } from 'notistack';
-import axios from '../../api'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 const headCells = [
     { 
@@ -72,26 +71,11 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
         if (e.currentTarget.value) {
             const value = e.currentTarget.value;
 
-            setFilter(prevState => ({ ...prevState, address: value }))
+            setFilter(prevState => ({ ...prevState, search: value }))
         } else {
             setFilter(initialValues)
         }
     }
-
-    const handleDelete = React.useCallback(async (values) => {
-        const { data } = await axios.delete(`/applications/${values.id}`);
-
-        if (data) {
-            setItems(prevItems => [
-                ...prevItems.filter(({ id }) => id != data.id),
-                data  
-            ])
-            enqueueSnackbar(
-                `¡Ha desincorporado el cubículo "${data.address}"`, 
-                { variant: 'success' }
-            );
-        }
-    }, [])
 
     const rowRender = () => (
         items.map(row => (
@@ -112,7 +96,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                     padding="normal"
                     width='35%'
                 >
-                    {row.address}
+                    {row.title}
                 </TableCell>
                 <TableCell
                     component="th"
@@ -121,7 +105,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                     padding="normal"
                     width='25%'
                 >
-                    {row.people.name}
+                    {row.person.name}
                 </TableCell>
                 <TableCell
                     component="th"
@@ -151,13 +135,10 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                     width='10%'
                 >
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <LinkIconButton href={`/applications/${row.id}/edit`} />
-                        {row.active ? (
-                            <DeleteButton
-                                title={`¿Está seguro que desea anular la solicitud "${row.num}"?`}
-                                onClick={() => handleDelete(row)}
-                            />
-                        ) : null}
+                        <LinkIconButton
+                            href={`/applications/${row.id}`}
+                            icon={<RemoveRedEyeIcon />}
+                        />
                     </Box>
                 </TableCell>
             </TableRow>

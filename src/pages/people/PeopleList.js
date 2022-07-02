@@ -24,7 +24,7 @@ const headCells = [
         id: 'cubicles',
         numeric: false,
         disablePadding: true,
-        label: 'Nº de personas',
+        label: 'Solicitudes',
         align: 'center'
     },
     { 
@@ -32,7 +32,7 @@ const headCells = [
         numeric: false,
         disablePadding: true,
         label: 'Acciones',
-        align: 'center'
+        align: 'left'
     }
 ];
 
@@ -67,7 +67,7 @@ const ItemList = () => {
                     id={`${row.id}`}
                     scope="row"
                     padding="normal"
-                    width='70%'
+                    width='80%'
                 >
                     {row.name}
                 </TableCell>
@@ -77,9 +77,9 @@ const ItemList = () => {
                     scope="row"
                     padding="normal"
                     align='center'
-                    width='20%'
+                    width='10%'
                 >
-                    {row.people_count}
+                    {row.applications_count}
                 </TableCell>
                 <TableCell scope="row" align='right' width='10%'>
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -96,7 +96,7 @@ const ItemList = () => {
     React.useEffect(() => setItems(data), [data])
 
     return (
-        <ListContainer title="Rubros">
+        <ListContainer title="Personas">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'} backgroundColor='#fff'>
                     <TextField

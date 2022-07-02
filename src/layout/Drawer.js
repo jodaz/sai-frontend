@@ -135,6 +135,7 @@ function ResponsiveDrawer() {
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
+                    overflow: 'hidden'
                 }}
             >
                 <Toolbar>
@@ -158,7 +159,7 @@ function ResponsiveDrawer() {
             </AppBar>
             <Box
                 component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, overflow: 'hidden' }}
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -172,6 +173,7 @@ function ResponsiveDrawer() {
                     sx={{
                         display: { xs: 'block', sm: 'none' },
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        overflow: 'hidden'
                     }}
                 >
                     {drawer}
@@ -180,7 +182,8 @@ function ResponsiveDrawer() {
                     variant="permanent"
                     sx={{
                         display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, overflowX: 'hidden' },
+                        overflow: 'hidden'
                     }}
                     open
                 >
