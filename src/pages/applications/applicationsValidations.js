@@ -2,7 +2,10 @@ export const applicationCreateValidation = (values) => {
     const errors = {};
 
     if (!values.title) {
-        errors.title = "Ingrese un nombre para el título.";
+        errors.title = "Ingrese un título.";
+    }
+    if (!values.description) {
+        errors.description = "Ingrese una descripción.";
     }
     if (!values.category_id) {
         errors.category_id = "Seleccione una categoría.";

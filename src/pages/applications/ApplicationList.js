@@ -21,10 +21,10 @@ const headCells = [
         label: 'Número',
     },
     { 
-        id: 'address',
+        id: 'title',
         numeric: false,
         disablePadding: true,
-        label: 'Dirección',
+        label: 'Título',
     },
     { 
         id: 'people',
@@ -147,7 +147,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
     React.useEffect(() => setItems(data), [data])
 
     return (
-        <ListContainer title="Cubículos">
+        <ListContainer title="Solicitudes">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'} backgroundColor='#fff'>
                     <TextField
@@ -168,7 +168,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                         <ButtonLink
                             color="primary"
                             variant="contained"
-                            to={`/applications/${initialValues.person_id}/create`}
+                            to={`/people/${initialValues.person_id}/applications/create`}
                         />
                     </Box>
                 )}

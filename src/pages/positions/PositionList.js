@@ -114,7 +114,7 @@ const ItemList = () => {
     React.useEffect(() => setItems(data), [data])
 
     return (
-        <ListContainer title="Rubros">
+        <ListContainer title="Cargos">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'} backgroundColor='#fff'>
                     <TextField

@@ -24,6 +24,13 @@ const headCells = [
         id: 'cubicles',
         numeric: false,
         disablePadding: true,
+        label: 'Cédula',
+        align: 'center'
+    },
+    { 
+        id: 'cubicles',
+        numeric: false,
+        disablePadding: true,
         label: 'Solicitudes',
         align: 'center'
     },
@@ -36,7 +43,7 @@ const headCells = [
     }
 ];
 
-const ItemList = () => {
+const PeopleList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
@@ -47,12 +54,11 @@ const ItemList = () => {
         filter: filter
     })
     const [items, setItems] = React.useState({})
-    const { enqueueSnackbar } = useSnackbar();
 
     const handleOnChange = (e) => {
         if (e.currentTarget.value) {
             setFilter({
-                name: e.currentTarget.value
+                search: e.currentTarget.value
             })
         } else {
             setFilter({})
@@ -67,9 +73,19 @@ const ItemList = () => {
                     id={`${row.id}`}
                     scope="row"
                     padding="normal"
-                    width='80%'
+                    width='70%'
                 >
                     {row.name}
+                </TableCell>
+                <TableCell
+                    component="th"
+                    id={`${row.id}`}
+                    scope="row"
+                    padding="normal"
+                    align='left'
+                    width='10%'
+                >
+                    {row.dni}
                 </TableCell>
                 <TableCell
                     component="th"
@@ -132,4 +148,4 @@ const ItemList = () => {
     )
 }
 
-export default ItemList
+export default PeopleList

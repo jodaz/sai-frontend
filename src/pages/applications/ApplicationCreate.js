@@ -16,13 +16,13 @@ const ApplicationCreate = () => {
 
     const save = React.useCallback(async (values) => {
         try {
-            const { data } = await axios.post('applications', {
+            const { data, status } = await axios.post('applications', {
                 person_id: id,
                 ...values
             });
 
-            if (data) {
-                navigate(`/applications/${id}`)
+            if (status >= 200 && status < 300) {
+                navigate(`/applications/${data.id}`)
                 enqueueSnackbar(
                     `¡Ha registrado la solicitud "${data.num}"`, 
                     { variant: 'success' }

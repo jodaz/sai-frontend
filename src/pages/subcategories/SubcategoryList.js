@@ -112,7 +112,7 @@ const SubcategoryList = () => {
     React.useEffect(() => setItems(data), [data])
 
     return (
-        <ListContainer title="Subcategoría">
+        <ListContainer title="Subcategorías">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'} backgroundColor='#fff'>
                     <TextField
