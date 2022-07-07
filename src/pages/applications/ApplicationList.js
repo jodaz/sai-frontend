@@ -12,6 +12,9 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useSnackbar } from 'notistack';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import axios from '../../api'
+import ApproveButton from '../../components/ApproveButton'
+import CancelButton from '../../components/CancelButton'
 
 const headCells = [
     { 
@@ -77,6 +80,27 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
         }
     }
 
+    const handleUpdate = React.useCallback(async (values, status) => {
+        const res = await axios.put(`/applications/${values.id}`, {
+            status: status
+        });
+
+        if (res.status >= 200 && res.status < 300) {
+            const { data } = res;
+            const message = (status == 'APROBADO') ? `¡Solicitud ${data.num} aprobada!` : `¡Solicitud ${data.num} rechazada!`;
+
+            setItems(prevItems => [
+                data,
+                ...prevItems.filter(({ id }) => id != data.id)
+            ])
+
+            enqueueSnackbar(
+                message, 
+                { variant: 'success' }
+            );
+        }
+    }, [])
+
     const rowRender = () => (
         items.map(row => (
             <TableRow hover tabIndex={-1} key={row.num}>
@@ -139,6 +163,18 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                             href={`/applications/${row.id}`}
                             icon={<RemoveRedEyeIcon />}
                         />
+                        {(row.state_id == 1) && (
+                            <>
+                                <ApproveButton
+                                    title={`¿Está seguro que desea aprobar la solicitud ${row.num}?`}
+                                    onClick={() => handleUpdate(row, 'APROBADO')}
+                                /> 
+                                <CancelButton
+                                    title={`¿Está seguro que desea rechazar la solicitud ${row.num}?`}
+                                    onClick={() => handleUpdate(row, 'RECHAZADO')}
+                                />  
+                            </>
+                        )}
                     </Box>
                 </TableCell>
             </TableRow>
