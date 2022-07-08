@@ -11,19 +11,17 @@ import TableHead from './TableHead'
 import LinearProgress from '@mui/material/LinearProgress';
 
 const EnhancedTable = ({
-    headCells, rows, loading, total
+    headCells, rows, loading, total, page, perPage, setPage, setPerPage
 }) => {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
 
     const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
+        setPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
 
@@ -73,7 +71,7 @@ const EnhancedTable = ({
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
                     count={total}
-                    rowsPerPage={rowsPerPage}
+                    rowsPerPage={perPage}
                     page={page}
                     onPageChange={handleChangePage}
                     onRowsPerPageChange={handleChangeRowsPerPage}
