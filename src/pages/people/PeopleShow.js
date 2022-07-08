@@ -10,6 +10,7 @@ import LoadingIndicator from '../../components/LoadingIndicator'
 import { setTitle, useAdmin } from '../../context/AdminContext'
 import PositionIcon from '@mui/icons-material/AccountBox';
 import ApplicationList from '../applications/ApplicationList';
+import PrivateRoute from '../../components/PrivateRoute'
 
 const PeopleShow = () => {
     const { dispatch } = useAdmin()
@@ -78,9 +79,11 @@ const PeopleShow = () => {
                         )}
                     </Box>
                 </Box>
-                <Box alignSelf='start'>
-                    <LinkIconButton href={`/people/${record.id}/edit`} />
-                </Box>
+                <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                    <Box alignSelf='start'>
+                        <LinkIconButton href={`/people/${record.id}/edit`} />
+                    </Box>
+                </PrivateRoute>
             </Box>
             <ApplicationList initialValues={{ person_id: id }} createButton/>
         </Box>
