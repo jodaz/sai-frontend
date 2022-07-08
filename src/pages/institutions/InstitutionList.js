@@ -54,7 +54,7 @@ const headCells = [
     }
 ];
 
-const ApplicationList = ({ initialValues, createButton, showpeople }) => {
+const InstitutionList = ({ initialValues, createButton, showpeople }) => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
@@ -183,10 +183,10 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
     )
 }
 
-ApplicationList.defaultProps = {
+InstitutionList.defaultProps = {
     initialValues: {},
     createButton: false,
     showpeople: false
 }
 
-export default ApplicationList
+export default InstitutionList

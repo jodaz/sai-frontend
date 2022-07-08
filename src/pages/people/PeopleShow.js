@@ -10,11 +10,15 @@ import LoadingIndicator from '../../components/LoadingIndicator'
 import { setTitle, useAdmin } from '../../context/AdminContext'
 import PositionIcon from '@mui/icons-material/AccountBox';
 import ApplicationList from '../applications/ApplicationList';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const PeopleShow = () => {
     const { dispatch } = useAdmin()
     const { id } = useParams();
     const [record, setRecord] = React.useState(null)
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
     const fetchRecord = React.useCallback(async () => {
         const { data } = await axios.get(`/people/${id}`);
@@ -82,7 +86,18 @@ const PeopleShow = () => {
                     <LinkIconButton href={`/people/${record.id}/edit`} />
                 </Box>
             </Box>
-            <ApplicationList initialValues={{ person_id: id }} createButton/>
+            <Box marginBottom='2rem'>
+                <Box fontSize='1.1rem' marginBottom='1rem' fontWeight={700}>
+                    Solicitudes
+                </Box>
+                <ApplicationList initialValues={{ person_id: id }} createButton/>
+            </Box>
+            <Box>
+                <Box fontSize='1.1rem' marginBottom='1rem' fontWeight={700}>
+                    Instituciones
+                </Box>
+                <ApplicationList initialValues={{ person_id: id }} createButton/>
+            </Box>
         </Box>
     )
 }
