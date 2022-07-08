@@ -13,6 +13,7 @@ import CommunityCreate from './pages/communities/CommunityCreate'
 import PeopleList from './pages/people/PeopleList'
 import PeopleEdit from './pages/people/PeopleEdit'
 import PeopleCreate from './pages/people/PeopleCreate'
+import PeopleShow from './pages/people/PeopleShow'
 import ParishList from './pages/parishes/ParishList'
 import ParishEdit from './pages/parishes/ParishEdit'
 import ParishCreate from './pages/parishes/ParishCreate'
@@ -28,11 +29,14 @@ import UserCreate from './pages/users/UserCreate'
 import Dashboard from './pages/dashboard'
 import ApplicationList from './pages/applications/ApplicationList';
 import ApplicationCreate from './pages/applications/ApplicationCreate';
-import PeopleShow from './pages/people/PeopleShow'
 import ApplicationShow from './pages/applications/ApplicationShow'
 import PositionList from './pages/positions/PositionList'
 import PositionEdit from './pages/positions/PositionEdit'
 import PositionCreate from './pages/positions/PositionCreate'
+import InstitutionList from './pages/institutions/InstitutionList'
+import InstitutionEdit from './pages/institutions/InstitutionEdit'
+import InstitutionCreate from './pages/institutions/InstitutionCreate'
+import InstitutionShow from './pages/institutions/InstitutionShow'
 
 const routes = [
     {
@@ -58,6 +62,26 @@ const routes = [
     {
         path: '/people/create',
         component: <PeopleCreate />,
+        roles: 'super-admin,admin'
+    },
+    {
+        path: '/institutions',
+        component: <InstitutionList />,
+        roles: 'super-admin,admin'
+    },
+    {
+        path: '/institutions/:id/edit',
+        component: <InstitutionEdit />,
+        roles: 'super-admin,admin'
+    },
+    {
+        path: '/institutions/:id',
+        component: <InstitutionShow />,
+        roles: 'super-admin,admin'
+    },
+    {
+        path: '/institutions/create',
+        component: <InstitutionCreate />,
         roles: 'super-admin,admin'
     },
     {

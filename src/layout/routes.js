@@ -2,6 +2,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PeopleIcon from '@mui/icons-material/People';
 import SupportIcon from '@mui/icons-material/Support';
+import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 
 const AdminIcon = () => (
     <FiberManualRecordIcon sx={{
@@ -22,6 +23,11 @@ export const routes = [
         name: 'Personas',
         route: '/people',
         icon: <PeopleIcon />
+    },
+    {
+        name: 'Instituciones',
+        route: '/institutions',
+        icon: <CorporateFareIcon />
     },
     {
         name: 'Solicitudes',

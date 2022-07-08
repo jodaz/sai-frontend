@@ -15,7 +15,7 @@ import SelectPositionInput from './SelectPositionInput';
 import Box from '@mui/material/Box'
 import LoadingIndicator from '../../components/LoadingIndicator'
 
-const StreetEdit = () => {
+const PeopleEdit = () => {
     const { id } = useParams();
     const [record, setRecord] = React.useState(null)
     const navigate = useNavigate()
@@ -102,4 +102,4 @@ const StreetEdit = () => {
     )
 }
 
-export default StreetEdit
+export default PeopleEdit
