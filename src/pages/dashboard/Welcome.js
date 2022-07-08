@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box'
 import dtiLogo from '../../images/DTI2.png'
 import mayorLogo from '../../images/mayorLogo.png'
+import fundacionLogo from '../../images/fundacion.png'
+import { useMediaQuery, useTheme } from '@mui/material'
 
 const Strong = ({ children }) => (
     <Box component='span' sx={{
@@ -12,6 +14,9 @@ const Strong = ({ children }) => (
 )
 
 const Welcome = () => {
+    const matches = useMediaQuery('(min-width:600px)');
+
+    console.log(matches)
     return (
         <Box sx={{
             fontSize: '2rem',
@@ -27,13 +32,16 @@ const Welcome = () => {
             </Box>
             <Box sx={{
                 paddingTop: '2rem',
-                width: '40%',
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexDirection: 'row'
+                width: '100%',
+                alignContent: 'center',
+                flexWrap: 'nowrap',
+                '& > *': {
+                    marginRight: '2rem'
+                }
             }}>
-                <img height='50rem' src={dtiLogo} />
-                <img height='75rem' src={mayorLogo} />
+                <img height='70rem' src={dtiLogo} />
+                <img height='75rem' src={fundacionLogo} />
+                <img height='100rem' src={mayorLogo} />
             </Box>
         </Box>
     )
