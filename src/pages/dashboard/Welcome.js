@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import dtiLogo from '../../images/DTI2.png'
 import mayorLogo from '../../images/mayorLogo.png'
 import fundacionLogo from '../../images/fundacion.png'
-import { useMediaQuery, useTheme } from '@mui/material'
+import { useMediaQuery } from '@mui/material'
 
 const Strong = ({ children }) => (
     <Box component='span' sx={{

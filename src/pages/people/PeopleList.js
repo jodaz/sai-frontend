@@ -12,6 +12,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useSnackbar } from 'notistack';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import PrivateRoute from '../../components/PrivateRoute'
 
 const headCells = [
     { 
@@ -103,7 +104,9 @@ const PeopleList = () => {
                             href={`/people/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/people/${row.id}/edit`} />
+                        <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                            <LinkIconButton href={`/people/${row.id}/edit`} />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

@@ -14,6 +14,7 @@ import DeleteButton from '../../components/DeleteButton'
 import { useSnackbar } from 'notistack';
 import axios from '../../api'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import PrivateRoute from '../../components/PrivateRoute'
 
 const headCells = [
     { 
@@ -38,7 +39,7 @@ const headCells = [
     }
 ];
 
-const ItemList = () => {
+const PositionList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
@@ -130,13 +131,15 @@ const ItemList = () => {
                         fullWidth
                     />
                 </Box>
-                <Box>
-                    <ButtonLink
-                        color="primary"
-                        variant="contained"
-                        to="/positions/create"
-                    />
-                </Box>
+                <PrivateRoute authorize={'super-admin'} unauthorized={null}>
+                    <Box>
+                        <ButtonLink
+                            color="primary"
+                            variant="contained"
+                            to="/positions/create"
+                        />
+                    </Box>
+                </PrivateRoute>
             </Box>
             <Box>
                 <Table
@@ -150,4 +153,4 @@ const ItemList = () => {
     )
 }
 
-export default ItemList
+export default PositionList

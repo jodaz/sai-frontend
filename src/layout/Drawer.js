@@ -26,6 +26,7 @@ import GoBackButton from './GoBackButton'
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import { useNavigate } from 'react-router-dom'
 import { alpha } from '@mui/material';
+import PrivateRoute from '../components/PrivateRoute'
 
 const drawerWidth = 240;
 
@@ -73,54 +74,58 @@ function ResponsiveDrawer() {
                         key={index}
                     />
                 ))}
-                <Submenu
-                    handleToggle={() => handleToggle('settingsArea')}
-                    isOpen={state.settingsArea}
-                    sidebarIsOpen={true}
-                    name='Configuraciones'
-                    icon={<DisplaySettingsIcon />}
-                >
-                    {settingsRoutes.map((route, index) => (
-                        <ListItemLink
-                            primary={route.name}
-                            to={route.route}
-                            icon={route.icon}
-                            key={index}
-                        />
-                    ))}
-                </Submenu>
-                <Submenu
-                    handleToggle={() => handleToggle('geographicArea')}
-                    isOpen={state.geographicArea}
-                    sidebarIsOpen={true}
-                    name='Áreas'
-                    icon={<PublicIcon />}
-                >
-                    {geographicAreaRoutes.map((route, index) => (
-                        <ListItemLink
-                            primary={route.name}
-                            to={route.route}
-                            icon={route.icon}
-                            key={index}
-                        />
-                    ))}
-                </Submenu>
-                <Submenu
-                    handleToggle={() => handleToggle('administrative')}
-                    isOpen={state.administrative}
-                    sidebarIsOpen={true}
-                    name='Administración'
-                    icon={<AssignmentIndIcon />}
-                >
-                    {adminRoutes.map((route, index) => (
-                        <ListItemLink
-                            primary={route.name}
-                            to={route.route}
-                            icon={route.icon}
-                            key={index}
-                        />
-                    ))}
-                </Submenu>
+                <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                    <Submenu
+                        handleToggle={() => handleToggle('settingsArea')}
+                        isOpen={state.settingsArea}
+                        sidebarIsOpen={true}
+                        name='Configuraciones'
+                        icon={<DisplaySettingsIcon />}
+                    >
+                        {settingsRoutes.map((route, index) => (
+                            <ListItemLink
+                                primary={route.name}
+                                to={route.route}
+                                icon={route.icon}
+                                key={index}
+                            />
+                        ))}
+                    </Submenu>
+                    <Submenu
+                        handleToggle={() => handleToggle('geographicArea')}
+                        isOpen={state.geographicArea}
+                        sidebarIsOpen={true}
+                        name='Áreas'
+                        icon={<PublicIcon />}
+                    >
+                        {geographicAreaRoutes.map((route, index) => (
+                            <ListItemLink
+                                primary={route.name}
+                                to={route.route}
+                                icon={route.icon}
+                                key={index}
+                            />
+                        ))}
+                    </Submenu>
+                </PrivateRoute>
+                <PrivateRoute authorize='super-admin' unauthorized={null}>
+                    <Submenu
+                        handleToggle={() => handleToggle('administrative')}
+                        isOpen={state.administrative}
+                        sidebarIsOpen={true}
+                        name='Administración'
+                        icon={<AssignmentIndIcon />}
+                    >
+                        {adminRoutes.map((route, index) => (
+                            <ListItemLink
+                                primary={route.name}
+                                to={route.route}
+                                icon={route.icon}
+                                key={index}
+                            />
+                        ))}
+                    </Submenu>
+                </PrivateRoute>
                 <LogoutButton />
             </List>
             <Divider />

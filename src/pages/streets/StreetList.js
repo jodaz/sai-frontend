@@ -14,6 +14,7 @@ import DeleteButton from '../../components/DeleteButton'
 import { useSnackbar } from 'notistack';
 import axios from '../../api'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import PrivateRoute from '../../components/PrivateRoute'
 
 const headCells = [
     { 
@@ -113,13 +114,15 @@ const StreetList = () => {
                         fullWidth
                     />
                 </Box>
-                <Box>
-                    <ButtonLink
-                        color="primary"
-                        variant="contained"
-                        to="/streets/create"
-                    />
-                </Box>
+                <PrivateRoute authorize={'super-admin'} unauthorized={null}>
+                    <Box>
+                        <ButtonLink
+                            color="primary"
+                            variant="contained"
+                            to="/streets/create"
+                        />
+                    </Box>
+                </PrivateRoute>
             </Box>
             <Box>
                 <Table

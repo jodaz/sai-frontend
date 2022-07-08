@@ -15,6 +15,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import axios from '../../api'
 import ApproveButton from '../../components/ApproveButton'
 import CancelButton from '../../components/CancelButton'
+import PrivateRoute from '../../components/PrivateRoute'
 
 const headCells = [
     { 
@@ -70,6 +71,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
         filter: filter
     })
     const [items, setItems] = React.useState({})
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleOnChange = (e) => {
         if (e.currentTarget.value) {
@@ -165,7 +167,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                             icon={<RemoveRedEyeIcon />}
                         />
                         {(row.state_id == 1) && (
-                            <>
+                            <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
                                 <ApproveButton
                                     title={`¿Está seguro que desea aprobar la solicitud ${row.num}?`}
                                     onClick={() => handleUpdate(row, 'APROBADO')}
@@ -174,7 +176,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                                     title={`¿Está seguro que desea rechazar la solicitud ${row.num}?`}
                                     onClick={() => handleUpdate(row, 'RECHAZADO')}
                                 />  
-                            </>
+                            </PrivateRoute>
                         )}
                     </Box>
                 </TableCell>
