@@ -76,7 +76,8 @@ const Login = () => {
                     <img
                         src={Logo}
                         alt="logo"
-                        height='300px'
+                        height='150px'
+                        width='300px'
                     />
                 </Box>
                 <Form

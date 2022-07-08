@@ -61,14 +61,15 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
+    const [perPage, setPerPage] = React.useState(5)
+    const [page, setPage] = React.useState(1)
     const [filter, setFilter] = React.useState(initialValues)
     const { loading, total, data } = useFetch('/applications', {
-        perPage: 10,
-        page: 1,
+        perPage: perPage,
+        page: page,
         filter: filter
     })
     const [items, setItems] = React.useState({})
-    const { enqueueSnackbar } = useSnackbar();
 
     const handleOnChange = (e) => {
         if (e.currentTarget.value) {
@@ -214,6 +215,10 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                 rows={items.length && rowRender()}
                 loading={loading}
                 total={total}
+                perPage={perPage}
+                page={page}
+                setPage={() => setPage(page + 1)}
+                setPerPage={() => setPerPage(5)}
             />
         </ListContainer>
     )
