@@ -33,6 +33,10 @@ import ApplicationShow from './pages/applications/ApplicationShow'
 import PositionList from './pages/positions/PositionList'
 import PositionEdit from './pages/positions/PositionEdit'
 import PositionCreate from './pages/positions/PositionCreate'
+import EntityList from './pages/entities/EntityList'
+import EntityEdit from './pages/entities/EntityEdit'
+import EntityCreate from './pages/entities/EntityCreate'
+
 
 const routes = [
     {
@@ -208,6 +212,21 @@ const routes = [
     {
         path: '/roles/create',
         component: <RoleCreate />,
+        roles: 'super-admin'
+    },
+    {
+        path: '/entities',
+        component: <EntityList />,
+        roles: 'super-admin'
+    },
+    {
+        path: '/entities/:id/edit',
+        component: <EntityEdit />,
+        roles: 'super-admin'
+    },
+    {
+        path: '/entities/create',
+        component: <EntityCreate />,
         roles: 'super-admin'
     },
 ]
