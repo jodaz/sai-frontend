@@ -9,20 +9,22 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TableHead from './TableHead'
 import LinearProgress from '@mui/material/LinearProgress';
+import { useAdmin, setPage, setPerPage } from '../context/AdminContext'
 
 const EnhancedTable = ({
-    headCells, rows, loading, total, page, perPage, setPage, setPerPage
+    headCells, rows, loading, total
 }) => {
-    const [order, setOrder] = React.useState('asc');
+    const [order, setOrder] = React.useState('asc')
+    const { dispatch, state: { perPage, page } } = useAdmin();
     const [orderBy, setOrderBy] = React.useState('calories');
 
     const handleChangePage = (event, newPage) => {
-        setPage(newPage);
+        setPage(dispatch, newPage);
     };
 
     const handleChangeRowsPerPage = (event) => {
-        setPerPage(parseInt(event.target.value, 10));
-        setPage(0);
+        setPerPage(dispatch, parseInt(event.target.value, 10));
+        setPage(dispatch, 0)
     };
 
     return (
@@ -32,6 +34,7 @@ const EnhancedTable = ({
                     <Table
                         sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
+                        size={loading ? 'medium' : 'small'}
                     >
                         <TableHead
                             headCells={headCells}

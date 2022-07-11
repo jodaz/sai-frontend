@@ -16,6 +16,7 @@ import axios from '../../api'
 import ApproveButton from '../../components/ApproveButton'
 import CancelButton from '../../components/CancelButton'
 import PrivateRoute from '../../components/PrivateRoute'
+import { useAdmin } from '../../context/AdminContext'
 
 const headCells = [
     { 
@@ -62,9 +63,8 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
-    const [perPage, setPerPage] = React.useState(5)
-    const [page, setPage] = React.useState(1)
     const [filter, setFilter] = React.useState(initialValues)
+    const { state: { perPage, page } } = useAdmin()
     const { loading, total, data } = useFetch('/applications', {
         perPage: perPage,
         page: page,
@@ -217,10 +217,6 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                 rows={items.length && rowRender()}
                 loading={loading}
                 total={total}
-                perPage={perPage}
-                page={page}
-                setPage={() => setPage(page + 1)}
-                setPerPage={() => setPerPage(5)}
             />
         </ListContainer>
     )

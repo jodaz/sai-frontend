@@ -11,6 +11,7 @@ import LinkIconButton from '../../components/LinkIconButton';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { useAdmin } from '../../context/AdminContext'
 
 const headCells = [
     { 
@@ -34,14 +35,15 @@ const headCells = [
     }
 ];
 
-const ItemList = () => {
+const UserList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
+    const { state: { perPage, page } } = useAdmin()
     const [filter, setFilter] = React.useState({})
     const { loading, total, data } = useFetch('/users', {
-        perPage: 10,
-        page: 1,
+        perPage: perPage,
+        page: page,
         filter: filter
     })
     const [items, setItems] = React.useState({})
@@ -131,4 +133,4 @@ const ItemList = () => {
     )
 }
 
-export default ItemList
+export default UserList
