@@ -12,10 +12,10 @@ const ControlledSelectInput = ({ id, disabled }) => {
     })
     const [options, setOptions] = React.useState([])
 
-    const fetchOptions = React.useCallback(async () => {
+    const fetchOptions = async () => {
         const { data: { data } } = await axios.get(`communities`, { params: params })
         setOptions(data)
-    }, []);
+    };
 
     React.useEffect(() => {
         fetchOptions();

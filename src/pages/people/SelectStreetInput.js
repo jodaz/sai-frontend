@@ -12,14 +12,14 @@ const ControlledSelectInput = ({ id, disabled }) => {
     })
     const [options, setOptions] = React.useState([])
 
-    const fetchOptions = React.useCallback(async () => {
+    const fetchOptions = async () => {
         const { data: { data } } = await axios.get(`streets`, { params: params })
         setOptions(data)
-    }, []);
+    };
 
     React.useEffect(() => {
         fetchOptions();
-    }, [])
+    }, [id])
 
     return (
         <InputContainer disabled={disabled} label="Calle" md={3} xs={12}>
