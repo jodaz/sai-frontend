@@ -63,6 +63,11 @@ export const adminRoutes = [
         name: 'Roles',
         route: '/roles',
         icon: <AdminIcon />
+    },
+    {
+        name: 'Dependencias',
+        route: '/entities',
+        icon: <AdminIcon />
     }
 ]
 

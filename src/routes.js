@@ -33,17 +33,21 @@ import ApplicationShow from './pages/applications/ApplicationShow'
 import PositionList from './pages/positions/PositionList'
 import PositionEdit from './pages/positions/PositionEdit'
 import PositionCreate from './pages/positions/PositionCreate'
+import EntityList from './pages/entities/EntityList'
+import EntityEdit from './pages/entities/EntityEdit'
+import EntityCreate from './pages/entities/EntityCreate'
+
 
 const routes = [
     {
         path: '/',
         component: <Dashboard />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/people',
         component: <PeopleList />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/people/:id/edit',
@@ -53,27 +57,27 @@ const routes = [
     {
         path: '/people/:id',
         component: <PeopleShow />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/people/create',
         component: <PeopleCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/people/:id/applications/create',
         component: <ApplicationCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/applications/:id',
         component: <ApplicationShow />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/applications',
         component: <ApplicationList />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin,admin,transcriptor'
     },
     {
         path: '/categories',
@@ -83,12 +87,12 @@ const routes = [
     {
         path: '/categories/:id/edit',
         component: <CategoryEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/categories/create',
         component: <CategoryCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/positions',
@@ -98,12 +102,12 @@ const routes = [
     {
         path: '/positions/:id/edit',
         component: <PositionEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/positions/create',
         component: <PositionCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/subcategories',
@@ -113,12 +117,12 @@ const routes = [
     {
         path: '/subcategories/:id/edit',
         component: <SubcategoryEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/subcategories/create',
         component: <SubcategoryCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/parishes',
@@ -128,12 +132,12 @@ const routes = [
     {
         path: '/parishes/:id/edit',
         component: <ParishEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/parishes/create',
         component: <ParishCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/communities',
@@ -143,12 +147,12 @@ const routes = [
     {
         path: '/communities/:id/edit',
         component: <CommunityEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/communities/create',
         component: <CommunityCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/sectors',
@@ -158,12 +162,12 @@ const routes = [
     {
         path: '/sectors/:id/edit',
         component: <SectorEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/sectors/create',
         component: <SectorCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/streets',
@@ -173,12 +177,12 @@ const routes = [
     {
         path: '/streets/:id/edit',
         component: <StreetEdit />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/streets/create',
         component: <StreetCreate />,
-        roles: 'super-admin,admin'
+        roles: 'super-admin'
     },
     {
         path: '/users',
@@ -208,6 +212,21 @@ const routes = [
     {
         path: '/roles/create',
         component: <RoleCreate />,
+        roles: 'super-admin'
+    },
+    {
+        path: '/entities',
+        component: <EntityList />,
+        roles: 'super-admin'
+    },
+    {
+        path: '/entities/:id/edit',
+        component: <EntityEdit />,
+        roles: 'super-admin'
+    },
+    {
+        path: '/entities/create',
+        component: <EntityCreate />,
         roles: 'super-admin'
     },
 ]

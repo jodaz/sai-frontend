@@ -8,7 +8,7 @@ import axios from '../../api'
 import { useNavigate } from 'react-router-dom'
 import { useSnackbar } from 'notistack';
 import SelectRolesInput from './SelectRolesInput';
-import { identityCard } from './userTextFormats'
+import SelectEntityInput from './SelectEntityInput';
 
 const UserCreate = () => {
     const navigate = useNavigate()
@@ -54,6 +54,7 @@ const UserCreate = () => {
                 />
             </InputContainer>
             <SelectRolesInput name='roles' />
+            <SelectEntityInput name='entity_id' />
         </BaseForm>
     )
 }

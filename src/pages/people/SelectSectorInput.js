@@ -8,18 +8,18 @@ import Box from '@mui/material/Box'
 
 const ControlledSelectInput = ({ id, disabled }) => {
     const params = useGetQueryFromParams({
-        filter: { sector_id: id}
+        filter: { community_id: id}
     })
     const [options, setOptions] = React.useState([])
 
-    const fetchOptions = React.useCallback(async () => {
+    const fetchOptions = async () => {
         const { data: { data } } = await axios.get(`sectors`, { params: params })
         setOptions(data)
-    }, []);
+    };
 
     React.useEffect(() => {
         fetchOptions();
-    }, [])
+    }, [id])
 
     return (
         <InputContainer disabled={disabled} label="Sector" md={3} xs={12}>

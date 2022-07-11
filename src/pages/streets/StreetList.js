@@ -14,6 +14,8 @@ import DeleteButton from '../../components/DeleteButton'
 import { useSnackbar } from 'notistack';
 import axios from '../../api'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import PrivateRoute from '../../components/PrivateRoute'
+import { useAdmin } from '../../context/AdminContext'
 
 const headCells = [
     { 
@@ -35,10 +37,11 @@ const StreetList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
+    const { state: { perPage, page } } = useAdmin()
     const [filter, setFilter] = React.useState({})
     const { loading, total, data } = useFetch('/streets', {
-        perPage: 10,
-        page: 1,
+        perPage: perPage,
+        page: page,
         filter: filter
     })
     const [items, setItems] = React.useState({})
@@ -113,13 +116,15 @@ const StreetList = () => {
                         fullWidth
                     />
                 </Box>
-                <Box>
-                    <ButtonLink
-                        color="primary"
-                        variant="contained"
-                        to="/streets/create"
-                    />
-                </Box>
+                <PrivateRoute authorize={'super-admin'} unauthorized={null}>
+                    <Box>
+                        <ButtonLink
+                            color="primary"
+                            variant="contained"
+                            to="/streets/create"
+                        />
+                    </Box>
+                </PrivateRoute>
             </Box>
             <Box>
                 <Table

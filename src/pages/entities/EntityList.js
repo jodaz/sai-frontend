@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import DeleteButton from '../../components/DeleteButton'
 import { useSnackbar } from 'notistack';
 import axios from '../../api'
-import { useAdmin } from '../../context/AdminContext'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
 const headCells = [
     { 
@@ -27,18 +27,18 @@ const headCells = [
         numeric: false,
         disablePadding: true,
         label: 'Acciones',
+        align: 'center'
     }
 ];
 
-const RoleList = () => {
+const EntityList = () => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
-    const { state: { perPage, page } } = useAdmin()
     const [filter, setFilter] = React.useState({})
-    const { loading, total, data } = useFetch('/roles', {
-        perPage: perPage,
-        page: page,
+    const { loading, total, data } = useFetch('/entities', {
+        perPage: 10,
+        page: 1,
         filter: filter
     })
     const [items, setItems] = React.useState({})
@@ -55,12 +55,12 @@ const RoleList = () => {
     }
 
     const handleDelete = React.useCallback(async (values) => {
-        const { data } = await axios.delete(`/roles/${values.id}`);
+        const { data } = await axios.delete(`/entities/${values.id}`);
 
         if (data) {
             setItems(prevItems => [...prevItems.filter(({ id }) => id != data.id)])
             enqueueSnackbar(
-                `¡Ha eliminado el cargo "${data.name}"`, 
+                `¡Ha eliminado la categoría "${data.name}"`, 
                 { variant: 'success' }
             );
         }
@@ -74,18 +74,19 @@ const RoleList = () => {
                     id={`${row.id}`}
                     scope="row"
                     padding="normal"
-                    width='100%'
+                    width='70%'
                 >
                     {row.name}
                 </TableCell>
-                <TableCell
-                    scope="row"
-                    align='right'
-                >
+                <TableCell scope="row" align='right' width='10%'>
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <LinkIconButton href={`/roles/${row.id}/edit`} />
+                        <LinkIconButton
+                            href={`/entities/${row.id}`} 
+                            icon={<RemoveRedEyeIcon />}
+                        />
+                        <LinkIconButton href={`/entities/${row.id}/edit`} />
                         <DeleteButton
-                            title={`¿Está seguro que desea eliminar el rol "${row.name}"?`}
+                            title={`¿Está seguro que desea eliminar la dependencia "${row.name}"?`}
                             onClick={() => handleDelete(row)}
                         />
                     </Box>
@@ -96,7 +97,7 @@ const RoleList = () => {
     React.useEffect(() => setItems(data), [data])
 
     return (
-        <ListContainer title="Cargos">
+        <ListContainer title="Dependencias">
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box width={isSmall ? '100%' : '40%'} backgroundColor='#fff'>
                     <TextField
@@ -116,7 +117,7 @@ const RoleList = () => {
                     <ButtonLink
                         color="primary"
                         variant="contained"
-                        to="/roles/create"
+                        to="/entities/create"
                     />
                 </Box>
             </Box>
@@ -132,4 +133,4 @@ const RoleList = () => {
     )
 }
 
-export default RoleList
+export default EntityList

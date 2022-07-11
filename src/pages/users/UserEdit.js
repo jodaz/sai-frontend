@@ -9,7 +9,7 @@ import axios from '../../api'
 import PasswordInput from '../../components/PasswordInput'
 import { useSnackbar } from 'notistack';
 import SelectRolesInput from './SelectRolesInput';
-import { identityCard } from './userTextFormats'
+import SelectEntityInput from './SelectEntityInput';
 import LoadingIndicator from '../../components/LoadingIndicator'
 
 const UserEdit = () => {
@@ -71,6 +71,7 @@ const UserEdit = () => {
                 />
             </InputContainer>
             <SelectRolesInput name='roles' />
+            <SelectEntityInput name='entity_id' />
         </BaseForm>
     )
 }

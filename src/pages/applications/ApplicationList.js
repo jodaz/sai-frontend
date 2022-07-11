@@ -12,6 +12,11 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import { useSnackbar } from 'notistack';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import axios from '../../api'
+import ApproveButton from '../../components/ApproveButton'
+import CancelButton from '../../components/CancelButton'
+import PrivateRoute from '../../components/PrivateRoute'
+import { useAdmin } from '../../context/AdminContext'
 
 const headCells = [
     { 
@@ -58,15 +63,15 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
-    const [perPage, setPerPage] = React.useState(5)
-    const [page, setPage] = React.useState(1)
     const [filter, setFilter] = React.useState(initialValues)
+    const { state: { perPage, page } } = useAdmin()
     const { loading, total, data } = useFetch('/applications', {
         perPage: perPage,
         page: page,
         filter: filter
     })
     const [items, setItems] = React.useState({})
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleOnChange = (e) => {
         if (e.currentTarget.value) {
@@ -77,6 +82,27 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
             setFilter(initialValues)
         }
     }
+
+    const handleUpdate = React.useCallback(async (values, status) => {
+        const res = await axios.put(`/applications/${values.id}`, {
+            status: status
+        });
+
+        if (res.status >= 200 && res.status < 300) {
+            const { data } = res;
+            const message = (status == 'APROBADO') ? `¡Solicitud ${data.num} aprobada!` : `¡Solicitud ${data.num} rechazada!`;
+
+            setItems(prevItems => [
+                data,
+                ...prevItems.filter(({ id }) => id != data.id)
+            ])
+
+            enqueueSnackbar(
+                message, 
+                { variant: 'success' }
+            );
+        }
+    }, [])
 
     const rowRender = () => (
         items.map(row => (
@@ -140,6 +166,18 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                             href={`/applications/${row.id}`}
                             icon={<RemoveRedEyeIcon />}
                         />
+                        {(row.state_id == 1) && (
+                            <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                                <ApproveButton
+                                    title={`¿Está seguro que desea aprobar la solicitud ${row.num}?`}
+                                    onClick={() => handleUpdate(row, 'APROBADO')}
+                                /> 
+                                <CancelButton
+                                    title={`¿Está seguro que desea rechazar la solicitud ${row.num}?`}
+                                    onClick={() => handleUpdate(row, 'RECHAZADO')}
+                                />  
+                            </PrivateRoute>
+                        )}
                     </Box>
                 </TableCell>
             </TableRow>
@@ -179,10 +217,6 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                 rows={items.length && rowRender()}
                 loading={loading}
                 total={total}
-                perPage={perPage}
-                page={page}
-                setPage={() => setPage(page + 1)}
-                setPerPage={() => setPerPage(5)}
             />
         </ListContainer>
     )
