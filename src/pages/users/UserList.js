@@ -20,6 +20,12 @@ const headCells = [
         label: 'Usuario'
     },
     { 
+        id: 'entity',
+        numeric: false,
+        disablePadding: true,
+        label: 'Dependencia'
+    },
+    { 
         id: 'actions',
         numeric: false,
         disablePadding: true,
@@ -62,6 +68,15 @@ const ItemList = () => {
                 >
                     {row.login}
                 </TableCell>
+                    <TableCell
+                        component="th"
+                        id={row.id}
+                        scope="row"
+                        padding="normal"
+                        width='100%'
+                    >
+                        {(row.entity_id) ? (row.entity.name) : 'Sin datos'}
+                    </TableCell>
                 <TableCell
                     scope="row"
                     width='10%'

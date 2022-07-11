@@ -20,12 +20,12 @@ const PeopleCreate = () => {
 
     const save = React.useCallback(async (values) => {
         try {
-            const { data } = await axios.post('/people', values)
+            const res = await axios.post('/people', values)
 
-            if (data) {
-                navigate('/people')
+            if (res.status >= 200 && res.status < 300) {
+                navigate(`/people/${res.data.id}`);
                 enqueueSnackbar(
-                    `¡Ha registrado la persona "${data.name}"`, 
+                    `¡Ha registrado la persona "${res.data.name}"`, 
                     { variant: 'success' }
                 );
             }

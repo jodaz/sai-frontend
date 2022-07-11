@@ -4,6 +4,9 @@ const generalUserValidations = values => {
     if (!values.login) {
         errors.login = "Ingrese un login.";
     }
+    if (!values.entity_id) {
+        errors.entity_id = 'Seleccione una dependencia.';
+    }
 
     return errors;
 }
