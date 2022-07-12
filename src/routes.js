@@ -38,6 +38,11 @@ import EntityEdit from './pages/entities/EntityEdit'
 import EntityCreate from './pages/entities/EntityCreate'
 import CategoryShow from './pages/categories/CategoryShow'
 import SubcategoryShow from './pages/subcategories/SubcategoryShow'
+import PositionShow from './pages/positions/PositionShow'
+import ParishShow from './pages/parishes/ParishShow'
+import CommunityShow from './pages/communities/CommunityShow'
+import SectorShow from './pages/sectors/SectorShow'
+import StreetShow from './pages/streets/StreetShow'
 
 const routes = [
     {
@@ -106,6 +111,11 @@ const routes = [
         roles: 'super-admin,admin'
     },
     {
+        path: '/positions/:id',
+        component: <PositionShow />,
+        roles: 'super-admin,admin'
+    },
+    {
         path: '/positions/:id/edit',
         component: <PositionEdit />,
         roles: 'super-admin'
@@ -146,6 +156,11 @@ const routes = [
         roles: 'super-admin'
     },
     {
+        path: '/parishes/:id',
+        component: <ParishShow />,
+        roles: 'super-admin,admin'
+    },
+    {
         path: '/parishes/create',
         component: <ParishCreate />,
         roles: 'super-admin'
@@ -159,6 +174,11 @@ const routes = [
         path: '/communities/:id/edit',
         component: <CommunityEdit />,
         roles: 'super-admin'
+    },
+    {
+        path: '/communities/:id',
+        component: <CommunityShow />,
+        roles: 'super-admin,admin'
     },
     {
         path: '/communities/create',
@@ -181,6 +201,11 @@ const routes = [
         roles: 'super-admin'
     },
     {
+        path: '/sectors/:id',
+        component: <SectorShow />,
+        roles: 'super-admin,admin'
+    },
+    {
         path: '/streets',
         component: <StreetList />,
         roles: 'super-admin,admin'
@@ -189,6 +214,11 @@ const routes = [
         path: '/streets/:id/edit',
         component: <StreetEdit />,
         roles: 'super-admin'
+    },
+    {
+        path: '/streets/:id',
+        component: <StreetShow />,
+        roles: 'super-admin,admin'
     },
     {
         path: '/streets/create',
