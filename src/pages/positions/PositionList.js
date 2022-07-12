@@ -16,6 +16,8 @@ import axios from '../../api'
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import PrivateRoute from '../../components/PrivateRoute'
 import { useAdmin } from '../../context/AdminContext'
+import TableToolbar from '../../components/TableToolbar';
+import PrintButton from '../../components/PrintButton';
 
 const headCells = [
     { 
@@ -135,15 +137,27 @@ const PositionList = () => {
                         fullWidth
                     />
                 </Box>
-                <PrivateRoute authorize={'super-admin'} unauthorized={null}>
-                    <Box>
-                        <ButtonLink
-                            color="primary"
-                            variant="contained"
-                            to="/positions/create"
-                        />
-                    </Box>
-                </PrivateRoute>
+                <TableToolbar>
+                    <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                        {items.length ? (
+                            <PrintButton
+                                filter={filter}
+                                basePath='/positions'
+                                filename='cargos.pdf'
+                                type='pdf'
+                            />
+                        ) : <></>}
+                    </PrivateRoute>
+                    <PrivateRoute authorize={'super-admin'} unauthorized={null}>
+                        <Box>
+                            <ButtonLink
+                                color="primary"
+                                variant="contained"
+                                to="/positions/create"
+                            />
+                        </Box>
+                    </PrivateRoute>
+                </TableToolbar>
             </Box>
             <Box>
                 <Table
