@@ -1,13 +1,13 @@
 import * as React from 'react'
 import InputContainer from '../../components/InputContainer'
 import SelectInput from '../../components/SelectInput'
-import useGetQueryFromParams from '../../hooks/useGetQueryFromParams';
+import getQueryFromParams from '../../utils/getQueryFromParams';
 import { useFormState } from 'react-final-form'
 import axios from '../../api'
 import Box from '@mui/material/Box'
 
 const ControlledSelectInput = ({ id, disabled }) => {
-    const params = useGetQueryFromParams({
+    const params = getQueryFromParams({
         filter: { community_id: id}
     })
     const [options, setOptions] = React.useState([])
