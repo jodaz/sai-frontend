@@ -87,11 +87,13 @@ const CategoryList = () => {
                             href={`/categories/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/categories/${row.id}/edit`} />
-                        <DeleteButton
-                            title={`¿Está seguro que desea eliminar la categoría "${row.name}"?`}
-                            onClick={() => handleDelete(row)}
-                        />
+                        <PrivateRoute authorize='super-admin' unauthorized={null}>
+                            <LinkIconButton href={`/categories/${row.id}/edit`} />
+                            <DeleteButton
+                                title={`¿Está seguro que desea eliminar la categoría "${row.name}"?`}
+                                onClick={() => handleDelete(row)}
+                            />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

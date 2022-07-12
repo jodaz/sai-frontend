@@ -87,11 +87,13 @@ const CommunityList = () => {
                             href={`/communities/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/communities/${row.id}/edit`} />
-                        <DeleteButton
-                            title={`¿Está seguro que desea eliminar la comunidad "${row.name}"?`}
-                            onClick={() => handleDelete(row)}
-                        />
+                        <PrivateRoute authorize='super-admin' unauthorized={null}>
+                            <LinkIconButton href={`/communities/${row.id}/edit`} />
+                            <DeleteButton
+                                title={`¿Está seguro que desea eliminar la comunidad "${row.name}"?`}
+                                onClick={() => handleDelete(row)}
+                            />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

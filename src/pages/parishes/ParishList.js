@@ -87,11 +87,13 @@ const ParishList = () => {
                             href={`/parishes/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/parishes/${row.id}/edit`} />
-                        <DeleteButton
-                            title={`¿Está seguro que desea eliminar la parroquia "${row.name}"?`}
-                            onClick={() => handleDelete(row)}
-                        />
+                        <PrivateRoute authorize='super-admin' unauthorized={null}>
+                            <LinkIconButton href={`/parishes/${row.id}/edit`} />
+                            <DeleteButton
+                                title={`¿Está seguro que desea eliminar la parroquia "${row.name}"?`}
+                                onClick={() => handleDelete(row)}
+                            />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

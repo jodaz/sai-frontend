@@ -104,11 +104,13 @@ const PositionList = () => {
                             href={`/positions/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/positions/${row.id}/edit`} />
-                        <DeleteButton
-                            title={`¿Está seguro que desea eliminar el rubro "${row.name}"?`}
-                            onClick={() => handleDelete(row)}
-                        />
+                        <PrivateRoute authorize='super-admin' unauthorized={null}>
+                            <LinkIconButton href={`/positions/${row.id}/edit`} />
+                            <DeleteButton
+                                title={`¿Está seguro que desea eliminar el rubro "${row.name}"?`}
+                                onClick={() => handleDelete(row)}
+                            />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

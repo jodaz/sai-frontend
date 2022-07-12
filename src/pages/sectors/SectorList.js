@@ -87,11 +87,13 @@ const ItemList = () => {
                             href={`/sectors/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/sectors/${row.id}/edit`} />
-                        <DeleteButton
-                            title={`¿Está seguro que desea eliminar el sector "${row.name}"?`}
-                            onClick={() => handleDelete(row)}
-                        />
+                        <PrivateRoute authorize='super-admin' unauthorized={null}>
+                            <LinkIconButton href={`/sectors/${row.id}/edit`} />
+                            <DeleteButton
+                                title={`¿Está seguro que desea eliminar el sector "${row.name}"?`}
+                                onClick={() => handleDelete(row)}
+                            />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

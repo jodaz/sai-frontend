@@ -102,11 +102,13 @@ const SubcategoryList = () => {
                             href={`/subcategories/${row.id}`} 
                             icon={<RemoveRedEyeIcon />}
                         />
-                        <LinkIconButton href={`/subcategories/${row.id}/edit`} />
-                        <DeleteButton
-                            title={`¿Está seguro que desea eliminar la subcategoría "${row.name}"?`}
-                            onClick={() => handleDelete(row)}
-                        />
+                        <PrivateRoute authorize='super-admin' unauthorized={null}>
+                            <LinkIconButton href={`/subcategories/${row.id}/edit`} />
+                            <DeleteButton
+                                title={`¿Está seguro que desea eliminar la subcategoría "${row.name}"?`}
+                                onClick={() => handleDelete(row)}
+                            />
+                        </PrivateRoute>
                     </Box>
                 </TableCell>
             </TableRow>

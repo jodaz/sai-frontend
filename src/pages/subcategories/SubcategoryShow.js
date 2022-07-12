@@ -49,9 +49,9 @@ const SubcategoryShow = () => {
                         {record.name}
                     </Box>
                 </Box>
-                <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                <PrivateRoute authorize='super-admin' unauthorized={null}>
                     <Box alignSelf='start'>
-                        <LinkIconButton href={`/category/${record.id}/edit`} />
+                        <LinkIconButton href={`/subcategories/${record.id}/edit`} />
                     </Box>
                 </PrivateRoute>
             </Box>
