@@ -36,7 +36,8 @@ import PositionCreate from './pages/positions/PositionCreate'
 import EntityList from './pages/entities/EntityList'
 import EntityEdit from './pages/entities/EntityEdit'
 import EntityCreate from './pages/entities/EntityCreate'
-
+import CategoryShow from './pages/categories/CategoryShow'
+import SubcategoryShow from './pages/subcategories/SubcategoryShow'
 
 const routes = [
     {
@@ -90,6 +91,11 @@ const routes = [
         roles: 'super-admin'
     },
     {
+        path: '/categories/:id',
+        component: <CategoryShow />,
+        roles: 'super-admin,admin'
+    },
+    {
         path: '/categories/create',
         component: <CategoryCreate />,
         roles: 'super-admin'
@@ -112,6 +118,11 @@ const routes = [
     {
         path: '/subcategories',
         component: <SubcategoryList />,
+        roles: 'super-admin,admin'
+    },
+    {
+        path: '/subcategories/:id',
+        component: <SubcategoryShow />,
         roles: 'super-admin,admin'
     },
     {
