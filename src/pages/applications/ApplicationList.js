@@ -17,6 +17,8 @@ import ApproveButton from '../../components/ApproveButton'
 import CancelButton from '../../components/CancelButton'
 import PrivateRoute from '../../components/PrivateRoute'
 import { useAdmin } from '../../context/AdminContext'
+import TableToolbar from '../../components/TableToolbar';
+import PrintButton from '../../components/PrintButton';
 
 const headCells = [
     { 
@@ -202,15 +204,27 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                         fullWidth
                     />
                 </Box>
-                {(createButton) && (
-                    <Box>
-                        <ButtonLink
-                            color="primary"
-                            variant="contained"
-                            to={`/people/${initialValues.person_id}/applications/create`}
-                        />
-                    </Box>
-                )}
+                <TableToolbar>
+                    <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
+                        {items.length ? (
+                            <PrintButton
+                                filter={filter}
+                                basePath='/applications'
+                                filename='solicitudes.pdf'
+                                type='pdf'
+                            />
+                        ) : <></>}
+                    </PrivateRoute>
+                    {(createButton) && (
+                        <Box>
+                            <ButtonLink
+                                color="primary"
+                                variant="contained"
+                                to={`/people/${initialValues.person_id}/applications/create`}
+                            />
+                        </Box>
+                    )}  
+                </TableToolbar>
             </Box>
             <Table
                 headCells={headCells}
