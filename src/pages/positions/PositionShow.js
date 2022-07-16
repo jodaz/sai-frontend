@@ -55,7 +55,7 @@ const PositionShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ position_id: id }} />
+            <ApplicationList initialValues={{ position_id: id }} title={{name: record.name}} />
         </Box>
     )
 }

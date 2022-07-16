@@ -55,7 +55,7 @@ const StreetShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ street_id: id }} />
+            <ApplicationList initialValues={{ street_id: id }} title={{name: record.name}} />
         </Box>
     )
 }

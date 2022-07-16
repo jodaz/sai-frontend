@@ -55,7 +55,7 @@ const SubcategoryShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ subcategory_id: id }} />
+            <ApplicationList initialValues={{ subcategory_id: id }} title={{name: record.name}} />
         </Box>
     )
 }

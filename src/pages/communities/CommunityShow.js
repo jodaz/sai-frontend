@@ -55,7 +55,7 @@ const CommunityShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ community_id: id }} />
+            <ApplicationList initialValues={{ community_id: id }} title={{name: record.name}} />
         </Box>
     )
 }
