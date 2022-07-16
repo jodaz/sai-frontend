@@ -33,6 +33,13 @@ const headCells = [
         label: 'Categoría',
     },
     { 
+        id: 'Solicitudes',
+        numeric: false,
+        disablePadding: true,
+        label: 'Solicitudes',
+        align: 'center'
+    },
+    { 
         id: 'actions',
         numeric: false,
         disablePadding: true,
@@ -85,7 +92,7 @@ const SubcategoryList = () => {
                     id={`${row.id}`}
                     scope="row"
                     padding="normal"
-                    width='70%'
+                    width='50%'
                 >
                     {row.name}
                 </TableCell>
@@ -94,9 +101,21 @@ const SubcategoryList = () => {
                     id={`${row.id}`}
                     scope="row"
                     padding="normal"
-                    width='70%'
+                    width='20%'
                 >
                     {row.category.name}
+                </TableCell>
+                <TableCell
+                    component="th"
+                    id={`${row.id}`}
+                    scope="row"
+                    padding="normal"
+                    width='20%'
+                    sx={{
+                        textAlign: 'center'
+                    }}
+                >
+                    {row.applications_count}
                 </TableCell>
                 <TableCell scope="row" align='right' width='10%'>
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>

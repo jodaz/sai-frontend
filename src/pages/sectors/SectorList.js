@@ -25,6 +25,13 @@ const headCells = [
         label: 'Nombre',
     },
     { 
+        id: 'Solicitudes',
+        numeric: false,
+        disablePadding: true,
+        label: 'Solicitudes',
+        align: 'center'
+    },
+    { 
         id: 'actions',
         numeric: false,
         disablePadding: true,
@@ -80,6 +87,18 @@ const ItemList = () => {
                     width='70%'
                 >
                     {row.name}
+                </TableCell>
+                <TableCell
+                    component="th"
+                    id={`${row.id}`}
+                    scope="row"
+                    padding="normal"
+                    width='20%'
+                    sx={{
+                        textAlign: 'center'
+                    }}
+                >
+                    {row.applications_count}
                 </TableCell>
                 <TableCell scope="row" align='right' width='10%'>
                     <Box sx={{ display: 'flex', justifyContent: 'center' }}>

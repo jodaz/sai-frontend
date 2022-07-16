@@ -204,7 +204,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                         fullWidth
                     />
                 </Box>
-                <TableToolbar>
+                <TableToolbar multiple={createButton}>
                     <PrivateRoute authorize='super-admin,admin' unauthorized={null}>
                         {items.length ? (
                             <PrintButton
@@ -215,7 +215,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                             />
                         ) : <></>}
                     </PrivateRoute>
-                    {(createButton) && (
+                    {(createButton) ? (
                         <Box>
                             <ButtonLink
                                 color="primary"
@@ -223,7 +223,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                                 to={`/people/${initialValues.person_id}/applications/create`}
                             />
                         </Box>
-                    )}  
+                    ) : null}  
                 </TableToolbar>
             </Box>
             <Table
