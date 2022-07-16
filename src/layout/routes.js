@@ -1,6 +1,6 @@
 import HomeIcon from '@mui/icons-material/Home';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import PeopleIcon from '@mui/icons-material/People';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import SupportIcon from '@mui/icons-material/Support';
 
 const AdminIcon = () => (
@@ -21,7 +21,7 @@ export const routes = [
     {
         name: 'Personas',
         route: '/people',
-        icon: <PeopleIcon />
+        icon: <PeopleAltOutlinedIcon />
     },
     {
         name: 'Solicitudes',

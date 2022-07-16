@@ -25,7 +25,7 @@ import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import GoBackButton from './GoBackButton'
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import { useNavigate } from 'react-router-dom'
-import { alpha } from '@mui/material';
+import { alpha, useMediaQuery } from '@mui/material';
 import PrivateRoute from '../components/PrivateRoute'
 
 const drawerWidth = 240;
@@ -39,6 +39,9 @@ function ResponsiveDrawer() {
     const navigate = useNavigate();
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { state: AdminState } = useAdmin()
+    const isSmall = useMediaQuery(theme =>
+        theme.breakpoints.down('sm')
+    )
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -154,9 +157,11 @@ function ResponsiveDrawer() {
                         <MenuIcon />
                     </IconButton>
                     <GoBackButton />
-                    <Typography variant="h6" noWrap component="div">
-                        {AdminState.title}
-                    </Typography>
+                    {!isSmall && (
+                        <Typography variant="h6" noWrap component="div">
+                            {AdminState.title}
+                        </Typography>
+                    )}
                     <Box flex='1' justifyContent='flex-end' display='flex'>
                         <AccountMenu />
                     </Box>
