@@ -55,7 +55,7 @@ const ParishShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ parish_id: id }} />
+            <ApplicationList initialValues={{ parish_id: id }} title={{name: record.name}} />
         </Box>
     )
 }

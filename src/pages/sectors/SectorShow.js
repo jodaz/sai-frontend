@@ -55,7 +55,7 @@ const SectorShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ sector_id: id }} />
+            <ApplicationList initialValues={{ sector_id: id }} title={{name: record.name}} />
         </Box>
     )
 }

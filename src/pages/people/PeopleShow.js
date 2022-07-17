@@ -85,7 +85,7 @@ const PeopleShow = () => {
                     </Box>
                 </PrivateRoute>
             </Box>
-            <ApplicationList initialValues={{ person_id: id }} createButton/>
+            <ApplicationList initialValues={{ person_id: id }} title={{name: record.name}} createButton/>
         </Box>
     )
 }

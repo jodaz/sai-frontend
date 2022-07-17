@@ -61,7 +61,7 @@ const headCells = [
     }
 ];
 
-const ApplicationList = ({ initialValues, createButton, showpeople }) => {
+const ApplicationList = ({ initialValues, createButton, showpeople, title }) => {
     const isSmall = useMediaQuery(theme =>
         theme.breakpoints.down('sm')
     )
@@ -212,6 +212,7 @@ const ApplicationList = ({ initialValues, createButton, showpeople }) => {
                                 basePath='/applications'
                                 filename='solicitudes.pdf'
                                 type='pdf'
+                                title={title ? title.name : null}
                             />
                         ) : <></>}
                     </PrivateRoute>
